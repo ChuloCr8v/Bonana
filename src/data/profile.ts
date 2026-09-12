@@ -14,7 +14,7 @@ export const PERSONAL_INFO: ProfileInfo = {
   github: 'https://github.com/chulocr8v',
   linkedin: 'https://linkedin.com/in/chulocr8v',
   aboutIntro:
-    "I'm a full-stack engineer and engineering lead focused on building reliable web products, backend systems, and internal tools. I enjoy working across the stack — from product architecture and database design to frontend implementation and deployment.",
+    "I'm a full-stack engineer and engineering lead focused on building reliable web products, backend systems, and internal tools. I enjoy working across the stack, from product architecture and database design to frontend implementation and deployment.",
   buildingPhilosophy:
     'I design, build, and maintain production software end to end: scalable PostgreSQL schema migrations, optimistic concurrency controls, Stripe billing lifecycle handling, headless PDF rendering pipelines in Docker, and published npm CLI developer tools.'
 };

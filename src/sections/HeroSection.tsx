@@ -1,6 +1,6 @@
-import React, { useRef, useState, useEffect, useCallback } from 'react';
-import { FileText, ArrowUpRight } from 'lucide-react';
-import { motion } from 'motion/react';
+import React, { useRef, useState, useEffect, useCallback } from "react";
+import { FileText, ArrowUpRight } from "lucide-react";
+import { motion } from "motion/react";
 
 interface HeroSectionProps {
   onOpenResume: () => void;
@@ -11,7 +11,10 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
   switch (rowIndex) {
     case 0:
       return (
-        <div key={`${keyPrefix}-0`} className="h-[44px] shrink-0 grid grid-cols-2 divide-x divide-[var(--border)] bg-[var(--surface)]">
+        <div
+          key={`${keyPrefix}-0`}
+          className="h-[44px] shrink-0 grid grid-cols-2 divide-x divide-[var(--border)] bg-[var(--surface)]"
+        >
           <div className="p-2 flex items-center justify-center bg-[var(--surface-alt)]/50">
             <span className="text-sm xl:text-base font-black tracking-tight text-[var(--text-main)] uppercase">
               TypeScript
@@ -26,7 +29,10 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
       );
     case 1:
       return (
-        <div key={`${keyPrefix}-1`} className="h-[44px] shrink-0 grid grid-cols-3 divide-x divide-[var(--border)] bg-[var(--surface)]">
+        <div
+          key={`${keyPrefix}-1`}
+          className="h-[44px] shrink-0 grid grid-cols-3 divide-x divide-[var(--border)] bg-[var(--surface)]"
+        >
           <div className="col-span-2 p-2 bg-[var(--text-main)] text-[var(--surface)] flex items-center justify-between px-3">
             <span className="font-extrabold text-sm tracking-tight uppercase">
               REACT.JS
@@ -42,12 +48,17 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
       );
     case 2:
       return (
-        <div key={`${keyPrefix}-2`} className="h-[44px] shrink-0 grid grid-cols-5 divide-x divide-[var(--border)] bg-[var(--surface)]">
+        <div
+          key={`${keyPrefix}-2`}
+          className="h-[44px] shrink-0 grid grid-cols-5 divide-x divide-[var(--border)] bg-[var(--surface)]"
+        >
           <div className="col-span-3 p-2 px-2.5 flex items-center justify-between">
             <span className="text-xs font-bold font-mono tracking-tight text-[var(--text-main)]">
               POSTGRESQL
             </span>
-            <span className="text-[9px] font-mono text-[var(--text-faint)]">ACID</span>
+            <span className="text-[9px] font-mono text-[var(--text-faint)]">
+              ACID
+            </span>
           </div>
           <div className="col-span-2 p-2 flex items-center justify-center bg-[var(--surface-alt)]/40">
             <span className="text-[11px] font-mono font-bold text-[var(--text-main)]">
@@ -58,7 +69,10 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
       );
     case 3:
       return (
-        <div key={`${keyPrefix}-3`} className="h-[44px] shrink-0 p-2 px-3 bg-[var(--surface)] flex items-center justify-between">
+        <div
+          key={`${keyPrefix}-3`}
+          className="h-[44px] shrink-0 p-2 px-3 bg-[var(--surface)] flex items-center justify-between"
+        >
           <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[var(--text-muted)]">
             DISTRIBUTED SYSTEMS
           </span>
@@ -69,7 +83,10 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
       );
     case 4:
       return (
-        <div key={`${keyPrefix}-4`} className="h-[44px] shrink-0 grid grid-cols-2 divide-x divide-[var(--border)] bg-[var(--surface)]">
+        <div
+          key={`${keyPrefix}-4`}
+          className="h-[44px] shrink-0 grid grid-cols-2 divide-x divide-[var(--border)] bg-[var(--surface)]"
+        >
           <div className="p-2 flex items-center justify-center">
             <span className="text-xs font-mono font-semibold text-[var(--text-main)]">
               DOCKER
@@ -84,7 +101,10 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
       );
     case 5:
       return (
-        <div key={`${keyPrefix}-5`} className="h-[44px] shrink-0 grid grid-cols-3 divide-x divide-[var(--border)] bg-[var(--surface)]">
+        <div
+          key={`${keyPrefix}-5`}
+          className="h-[44px] shrink-0 grid grid-cols-3 divide-x divide-[var(--border)] bg-[var(--surface)]"
+        >
           <div className="p-2 flex items-center justify-center">
             <span className="text-[11px] font-mono text-[var(--text-muted)]">
               PRISMA
@@ -100,7 +120,10 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
       );
     case 6:
       return (
-        <div key={`${keyPrefix}-6`} className="h-[44px] shrink-0 grid grid-cols-2 divide-x divide-[var(--border)] bg-[var(--surface)]">
+        <div
+          key={`${keyPrefix}-6`}
+          className="h-[44px] shrink-0 grid grid-cols-2 divide-x divide-[var(--border)] bg-[var(--surface)]"
+        >
           <div className="p-2 text-center flex items-center justify-center">
             <span className="text-[11px] font-mono font-semibold text-[var(--text-main)]">
               MICROSERVICES
@@ -115,7 +138,10 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
       );
     case 7:
       return (
-        <div key={`${keyPrefix}-7`} className="h-[44px] shrink-0 grid grid-cols-3 divide-x divide-[var(--border)] bg-[var(--surface)]">
+        <div
+          key={`${keyPrefix}-7`}
+          className="h-[44px] shrink-0 grid grid-cols-3 divide-x divide-[var(--border)] bg-[var(--surface)]"
+        >
           <div className="p-2 flex items-center justify-center">
             <span className="text-[10px] font-mono text-[var(--text-faint)] uppercase">
               STRIPE
@@ -135,7 +161,10 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
       );
     case 8:
       return (
-        <div key={`${keyPrefix}-8`} className="h-[44px] shrink-0 p-2.5 px-3 bg-[var(--surface-alt)]/70 flex items-center justify-between">
+        <div
+          key={`${keyPrefix}-8`}
+          className="h-[44px] shrink-0 p-2.5 px-3 bg-[var(--surface-alt)]/70 flex items-center justify-between"
+        >
           <span className="text-base xl:text-lg font-black tracking-tighter text-[var(--text-main)]">
             NEXT.JS 15
           </span>
@@ -214,15 +243,18 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
   }, [displayIndex]);
 
   return (
-    <section id="home" className="w-full border-b border-[var(--border)] bg-[var(--surface)]">
+    <section
+      id="home"
+      className="w-full border-b border-[var(--border)] bg-[var(--surface)]"
+    >
       {/* Main Bio Grid Row with Desktop Vertical Mosaic on the Right */}
       <div className="flex flex-col lg:flex-row items-stretch">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2 }}
-          transition={{ duration: 0.45, ease: 'easeOut' }}
-          className="flex-1 py-12 sm:py-16 lg:py-20 px-6 sm:px-8 lg:px-10 flex flex-col justify-center"
+          transition={{ duration: 0.45, ease: "easeOut" }}
+          className="flex-1 py-12 sm:py-16 lg:py-0 px-6 sm:px-8 lg:px-10 flex flex-col justify-center"
         >
           <div className="max-w-xl space-y-2 sm:space-y-2.5">
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-main)] leading-tight">
@@ -234,7 +266,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
             </p>
 
             <p className="text-sm sm:text-base text-[var(--text-muted)] font-normal max-w-xl">
-              I build production web applications, backend systems, and developer tools from idea to deployment.
+              I build production web applications, backend systems, and
+              developer tools from idea to deployment.
             </p>
 
             <p className="text-xs sm:text-sm font-mono text-[var(--text-muted)] max-w-xl pt-0.5">
@@ -281,23 +314,22 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
               style={{
                 transform: `translateY(-${displayIndex * ROW_HEIGHT}px)`,
                 transition: isJumping
-                  ? 'none'
-                  : 'transform 450ms cubic-bezier(0.16, 1, 0.3, 1)',
+                  ? "none"
+                  : "transform 450ms cubic-bezier(0.16, 1, 0.3, 1)",
               }}
             >
               {[0, 1, 2].flatMap((setIdx) =>
                 Array.from({ length: TOTAL_UNIQUE_ROWS }, (_, rowIdx) =>
-                  renderMosaicRow(rowIdx, `s${setIdx}`)
-                )
+                  renderMosaicRow(rowIdx, `s${setIdx}`),
+                ),
               )}
             </div>
           </div>
 
           {/* Any remaining fraction of height is filled cleanly without bleeding rows */}
-          <div className="flex-1 w-full bg-[var(--surface)] border-t border-[var(--border)]" />
+          {/* <div className="flex-1 w-full bg-[var(--surface)] border-t border-[var(--border)]" /> */}
         </div>
       </div>
     </section>
   );
 };
-

@@ -1,18 +1,18 @@
-import React from 'react';
-import { motion } from 'motion/react';
+import React from "react";
+import { motion } from "motion/react";
 
 interface HangingSectionHeaderProps {
   title: string;
   subtitle?: string;
-  as?: 'h2' | 'h3' | 'h4';
+  as?: "h2" | "h3" | "h4";
   id?: string;
 }
 
 export const HangingSectionHeader: React.FC<HangingSectionHeaderProps> = ({
   title,
   subtitle,
-  as: HeadingTag = 'h2',
-  id
+  as: HeadingTag = "h2",
+  id,
 }) => {
   return (
     <div
@@ -24,7 +24,7 @@ export const HangingSectionHeader: React.FC<HangingSectionHeaderProps> = ({
         initial={{ opacity: 0, y: -6 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.2 }}
-        transition={{ duration: 0.35, ease: 'easeOut' }}
+        transition={{ duration: 0.35, ease: "easeOut" }}
         className="relative inline-flex flex-col items-center max-w-[92vw] sm:max-w-2xl"
       >
         {/* Two clean vertical support strings directly from the top edge into either side of the box */}
@@ -50,4 +50,3 @@ export const HangingSectionHeader: React.FC<HangingSectionHeaderProps> = ({
     </div>
   );
 };
-

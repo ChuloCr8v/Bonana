@@ -1,11 +1,14 @@
-import React from 'react';
-import { WORK_HISTORY, TECHNICAL_STACK } from '../data/portfolioData';
-import { motion } from 'motion/react';
-import { HangingSectionHeader } from '../components/HangingSectionHeader';
+import { motion } from "motion/react";
+import React from "react";
+import { HangingSectionHeader } from "../components/HangingSectionHeader";
+import { TECHNICAL_STACK, WORK_HISTORY } from "../data/portfolioData";
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="w-full border-b border-[var(--border)] bg-[var(--surface)]">
+    <section
+      id="about"
+      className="w-full border-b border-[var(--border)] bg-[var(--surface)]"
+    >
       {/* Hanging Plaque: Professional Experience */}
       <HangingSectionHeader
         id="experience"
@@ -19,7 +22,7 @@ export const AboutSection: React.FC = () => {
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.1 }}
-        transition={{ duration: 0.45, ease: 'easeOut' }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
         className="divide-y divide-[var(--border)] border-b border-[var(--border)] bg-[var(--surface)]"
       >
         {WORK_HISTORY.map((role) => (
@@ -36,7 +39,9 @@ export const AboutSection: React.FC = () => {
 
                 {/* Organization and Date on same line */}
                 <div className="flex flex-wrap items-center gap-2 mt-1.5 font-mono text-xs sm:text-sm text-[var(--text-muted)]">
-                  <span className="font-semibold text-[var(--text-main)]">{role.company}</span>
+                  <span className="font-semibold text-[var(--text-main)]">
+                    {role.company}
+                  </span>
                   <span className="text-[var(--text-faint)]">|</span>
                   <span>{role.period}</span>
                 </div>
@@ -50,11 +55,11 @@ export const AboutSection: React.FC = () => {
 
             {/* Right Box: Structured Work List */}
             <div className="w-full md:w-7/12 lg:w-8/12 p-5 sm:p-6 bg-[var(--surface)] flex flex-col justify-center">
-              <div className="mb-2.5">
-                <span className="font-mono text-[10px] uppercase tracking-wider text-[var(--text-faint)]">
+              {/* <div className="mb-2.5">
+                <span className="text-xs uppercase text-[var(--text-main)]/60 font-se">
                   Key Responsibilities &amp; Impact
                 </span>
-              </div>
+              </div> */}
 
               <ul className="space-y-2.5 text-xs sm:text-sm text-[var(--text-muted)]">
                 {role.responsibilities.map((resp, i) => (
@@ -62,7 +67,9 @@ export const AboutSection: React.FC = () => {
                     <span className="font-mono text-[var(--accent)] text-[12px] select-none shrink-0 mt-0.5">
                       ▪
                     </span>
-                    <span className="leading-relaxed text-[var(--text-main)]">{resp}</span>
+                    <span className="leading-relaxed text-[var(--text-main)]">
+                      {resp}
+                    </span>
                   </li>
                 ))}
               </ul>
@@ -83,7 +90,7 @@ export const AboutSection: React.FC = () => {
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.1 }}
-        transition={{ duration: 0.45, ease: 'easeOut' }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
         className="divide-y divide-[var(--border)] bg-[var(--surface)]"
       >
         {TECHNICAL_STACK.map((group) => (

@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import { PERSONAL_INFO } from '../data/portfolioData';
-import { CV_DATA } from '../data/cv';
-import { FileText, Github, Sun, Moon, Menu, X, Download } from 'lucide-react';
-import { BonaLogo } from './BonaLogo';
+import { Download, FileText, Github, Menu, Moon, Sun, X } from "lucide-react";
+import React, { useState } from "react";
+import { CV_DATA } from "../data/cv";
+import { PERSONAL_INFO } from "../data/portfolioData";
+import BonaLogo from "./BonaLogo";
 
 interface HeaderProps {
   onOpenResume: () => void;
-  theme: 'light' | 'dark';
+  theme: "light" | "dark";
   onToggleTheme: () => void;
   onNavigate?: (path: string) => void;
   currentPath?: string;
@@ -17,18 +17,21 @@ export const Header: React.FC<HeaderProps> = ({
   theme,
   onToggleTheme,
   onNavigate,
-  currentPath = '/',
+  currentPath = "/",
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
-    if (currentPath !== '/' && onNavigate) {
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    hash: string,
+  ) => {
+    if (currentPath !== "/" && onNavigate) {
       e.preventDefault();
-      onNavigate('/');
+      onNavigate("/");
       setTimeout(() => {
         const target = document.querySelector(hash);
         if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
+          target.scrollIntoView({ behavior: "smooth" });
         }
       }, 100);
     }
@@ -37,8 +40,8 @@ export const Header: React.FC<HeaderProps> = ({
   const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     if (onNavigate) {
       e.preventDefault();
-      onNavigate('/');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      onNavigate("/");
+      window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
 
@@ -53,7 +56,7 @@ export const Header: React.FC<HeaderProps> = ({
             className="flex items-center focus-visible:outline-2 focus-visible:outline-[var(--accent)] group"
             aria-label="Home - bona"
           >
-            <BonaLogo size="md" />
+            <BonaLogo theme={theme} />
           </a>
 
           {/* Desktop Navigation Links */}
@@ -63,42 +66,42 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <a
               href="#about"
-              onClick={(e) => handleNavClick(e, '#about')}
+              onClick={(e) => handleNavClick(e, "#about")}
               className="px-3 py-1.5 hover:text-[var(--text-main)] hover:bg-[var(--surface-alt)] border-l border-[var(--border)] transition-colors"
             >
               About
             </a>
             <a
               href="#what-i-do"
-              onClick={(e) => handleNavClick(e, '#what-i-do')}
+              onClick={(e) => handleNavClick(e, "#what-i-do")}
               className="px-3 py-1.5 hover:text-[var(--text-main)] hover:bg-[var(--surface-alt)] border-l border-[var(--border)] transition-colors"
             >
               Focus
             </a>
             <a
               href="#projects"
-              onClick={(e) => handleNavClick(e, '#projects')}
+              onClick={(e) => handleNavClick(e, "#projects")}
               className="px-3 py-1.5 hover:text-[var(--text-main)] hover:bg-[var(--surface-alt)] border-l border-[var(--border)] transition-colors"
             >
               Systems
             </a>
             <a
               href="#experience"
-              onClick={(e) => handleNavClick(e, '#experience')}
+              onClick={(e) => handleNavClick(e, "#experience")}
               className="px-3 py-1.5 hover:text-[var(--text-main)] hover:bg-[var(--surface-alt)] border-l border-[var(--border)] transition-colors"
             >
               Experience
             </a>
             <a
               href="#stack"
-              onClick={(e) => handleNavClick(e, '#stack')}
+              onClick={(e) => handleNavClick(e, "#stack")}
               className="px-3 py-1.5 hover:text-[var(--text-main)] hover:bg-[var(--surface-alt)] border-l border-[var(--border)] transition-colors"
             >
               Stack
             </a>
             <a
               href="#contact"
-              onClick={(e) => handleNavClick(e, '#contact')}
+              onClick={(e) => handleNavClick(e, "#contact")}
               className="px-3 py-1.5 hover:text-[var(--text-main)] hover:bg-[var(--surface-alt)] border-l border-r border-[var(--border)] transition-colors"
             >
               Contact
@@ -108,7 +111,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Actions: Theme Toggle + CV Download + Resume + GitHub */}
           <div className="flex items-center gap-2">
             {/* Direct CV Download Link */}
-            <a
+            {/* <a
               href={CV_DATA.downloadUrl}
               download={CV_DATA.fileName}
               target="_blank"
@@ -118,27 +121,7 @@ export const Header: React.FC<HeaderProps> = ({
             >
               <Download className="h-3.5 w-3.5 text-[var(--accent)]" />
               <span>CV.pdf</span>
-            </a>
-
-            {/* Dark / Light Theme Toggle */}
-            <button
-              onClick={onToggleTheme}
-              className="flex items-center justify-center h-8 w-8 sm:w-auto sm:px-2.5 sm:py-1.5 border border-[var(--border)] bg-[var(--surface-alt)] text-xs font-mono text-[var(--text-main)] hover:border-[var(--text-main)] transition-colors cursor-pointer"
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-              title={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
-            >
-              {theme === 'dark' ? (
-                <>
-                  <Sun className="h-4 w-4 text-amber-400 sm:mr-1.5" />
-                  <span className="hidden sm:inline">Light</span>
-                </>
-              ) : (
-                <>
-                  <Moon className="h-4 w-4 text-zinc-700 sm:mr-1.5" />
-                  <span className="hidden sm:inline">Dark</span>
-                </>
-              )}
-            </button>
+            </a> */}
 
             {/* Technical Resume Trigger */}
             <button
@@ -158,16 +141,49 @@ export const Header: React.FC<HeaderProps> = ({
               title="GitHub Profile"
             >
               <Github className="h-3.5 w-3.5 text-[var(--text-main)]" />
-              <span className="sr-only sm:not-sr-only text-[var(--text-main)]">GitHub</span>
+              <span className="sr-only sm:not-sr-only text-[var(--text-main)]">
+                GitHub
+              </span>
             </a>
 
+            {/* Dark / Light Theme Toggle */}
+            <button
+              onClick={onToggleTheme}
+              className="flex items-center justify-center h-8 w-8 sm:w-auto sm:px-2.5 sm:py-1.5 border border-[var(--border)] bg-[var(--surface-alt)] text-xs font-mono text-[var(--text-main)] hover:border-[var(--text-main)] transition-colors cursor-pointer"
+              aria-label={
+                theme === "dark"
+                  ? "Switch to light mode"
+                  : "Switch to dark mode"
+              }
+              title={
+                theme === "dark"
+                  ? "Switch to light mode"
+                  : "Switch to dark mode"
+              }
+            >
+              {theme === "dark" ? (
+                <>
+                  <Sun className="h-4 w-4 text-amber-400" />
+                  {/* <span className="hidden sm:inline">Light</span> */}
+                </>
+              ) : (
+                <>
+                  <Moon className="h-4 w-4 text-zinc-700 " />
+                  {/* <span className="hidden sm:inline">Dark</span> */}
+                </>
+              )}
+            </button>
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="md:hidden p-1.5 text-[var(--text-muted)] hover:text-[var(--text-main)] border border-[var(--border)] bg-[var(--surface-alt)]"
-              aria-label={mobileMenuOpen ? 'Close Menu' : 'Open Menu'}
+              aria-label={mobileMenuOpen ? "Close Menu" : "Open Menu"}
             >
-              {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              {mobileMenuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
             </button>
           </div>
         </div>
@@ -179,7 +195,7 @@ export const Header: React.FC<HeaderProps> = ({
           <a
             href="#about"
             onClick={(e) => {
-              handleNavClick(e, '#about');
+              handleNavClick(e, "#about");
               setMobileMenuOpen(false);
             }}
             className="block px-4 py-3 hover:bg-[var(--surface-alt)]"
@@ -189,7 +205,7 @@ export const Header: React.FC<HeaderProps> = ({
           <a
             href="#what-i-do"
             onClick={(e) => {
-              handleNavClick(e, '#what-i-do');
+              handleNavClick(e, "#what-i-do");
               setMobileMenuOpen(false);
             }}
             className="block px-4 py-3 hover:bg-[var(--surface-alt)]"
@@ -199,7 +215,7 @@ export const Header: React.FC<HeaderProps> = ({
           <a
             href="#projects"
             onClick={(e) => {
-              handleNavClick(e, '#projects');
+              handleNavClick(e, "#projects");
               setMobileMenuOpen(false);
             }}
             className="block px-4 py-3 hover:bg-[var(--surface-alt)]"
@@ -209,7 +225,7 @@ export const Header: React.FC<HeaderProps> = ({
           <a
             href="#experience"
             onClick={(e) => {
-              handleNavClick(e, '#experience');
+              handleNavClick(e, "#experience");
               setMobileMenuOpen(false);
             }}
             className="block px-4 py-3 hover:bg-[var(--surface-alt)]"
@@ -219,7 +235,7 @@ export const Header: React.FC<HeaderProps> = ({
           <a
             href="#stack"
             onClick={(e) => {
-              handleNavClick(e, '#stack');
+              handleNavClick(e, "#stack");
               setMobileMenuOpen(false);
             }}
             className="block px-4 py-3 hover:bg-[var(--surface-alt)]"
@@ -229,7 +245,7 @@ export const Header: React.FC<HeaderProps> = ({
           <a
             href="#contact"
             onClick={(e) => {
-              handleNavClick(e, '#contact');
+              handleNavClick(e, "#contact");
               setMobileMenuOpen(false);
             }}
             className="block px-4 py-3 hover:bg-[var(--surface-alt)]"

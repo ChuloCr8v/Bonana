@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { motion, useScroll } from 'motion/react';
-import { Header } from './components/Header';
-import { HeroSection } from './sections/HeroSection';
-import { AboutIntroSection } from './sections/AboutIntroSection';
-import { WhatIDoSection } from './sections/WhatIDoSection';
-import { ProjectsSection } from './sections/ProjectsSection';
-import { AboutSection } from './sections/AboutSection';
-import { ContactSection } from './sections/ContactSection';
-import { Footer } from './components/Footer';
-import { ResumeModal } from './components/ResumeModal';
-import { ImageModal } from './components/ImageModal';
+import React, { useState, useEffect } from "react";
+import { motion, useScroll } from "motion/react";
+import { Header } from "./components/Header";
+import { HeroSection } from "./sections/HeroSection";
+import { AboutIntroSection } from "./sections/AboutIntroSection";
+import { WhatIDoSection } from "./sections/WhatIDoSection";
+import { ProjectsSection } from "./sections/ProjectsSection";
+import { AboutSection } from "./sections/AboutSection";
+import { ContactSection } from "./sections/ContactSection";
+import { Footer } from "./components/Footer";
+import { ResumeModal } from "./components/ResumeModal";
+import { ImageModal } from "./components/ImageModal";
 
 export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
@@ -21,7 +21,7 @@ export default function App() {
   } | null>(null);
 
   const [currentPath, setCurrentPath] = useState<string>(() => {
-    return typeof window !== 'undefined' ? window.location.pathname : '/';
+    return typeof window !== "undefined" ? window.location.pathname : "/";
   });
 
   const { scrollYProgress } = useScroll();
@@ -31,40 +31,45 @@ export default function App() {
     const handlePopState = () => {
       setCurrentPath(window.location.pathname);
     };
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+    window.addEventListener("popstate", handlePopState);
+    return () => window.removeEventListener("popstate", handlePopState);
   }, []);
 
   const navigateTo = (path: string) => {
     if (window.location.pathname !== path) {
-      window.history.pushState({}, '', path);
+      window.history.pushState({}, "", path);
       setCurrentPath(path);
       window.scrollTo(0, 0);
     }
   };
 
   // Dark Theme Management with LocalStorage default to 'dark'
-  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
-    const saved = localStorage.getItem('bona_theme');
-    if (saved === 'dark' || saved === 'light') return saved;
-    return 'dark'; // Dark theme default mode
+  const [theme, setTheme] = useState<"light" | "dark">(() => {
+    const saved = localStorage.getItem("bona_theme");
+    if (saved === "dark" || saved === "light") return saved;
+    return "dark"; // Dark theme default mode
   });
 
   useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark");
     } else {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     }
-    localStorage.setItem('bona_theme', theme);
+    localStorage.setItem("bona_theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === 'dark' ? 'light' : 'dark'));
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
   };
 
   // Open Image Modal helper
-  const handleOpenImage = (imageUrl: string, title: string, caption?: string, tag?: string) => {
+  const handleOpenImage = (
+    imageUrl: string,
+    title: string,
+    caption?: string,
+    tag?: string,
+  ) => {
     setActiveImage({ url: imageUrl, title, caption, tag });
   };
 
@@ -78,18 +83,18 @@ export default function App() {
         return;
       }
 
-      if ((e.key === 'r' || e.key === 'R') && !e.metaKey && !e.ctrlKey) {
+      if ((e.key === "r" || e.key === "R") && !e.metaKey && !e.ctrlKey) {
         setIsResumeOpen((prev) => !prev);
-      } else if ((e.key === 't' || e.key === 'T') && !e.metaKey && !e.ctrlKey) {
+      } else if ((e.key === "t" || e.key === "T") && !e.metaKey && !e.ctrlKey) {
         toggleTheme();
-      } else if (e.key === 'Escape') {
+      } else if (e.key === "Escape") {
         setIsResumeOpen(false);
         setActiveImage(null);
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [theme]);
 
   return (
@@ -122,10 +127,7 @@ export default function App() {
           <WhatIDoSection />
 
           {/* 4. Projects Section (Featured Priority with QikCV primary & Drawer) */}
-          <ProjectsSection
-            theme={theme}
-            onOpenImage={handleOpenImage}
-          />
+          <ProjectsSection theme={theme} onOpenImage={handleOpenImage} />
 
           {/* 5. Professional Experience & Technical Stack Matrix */}
           <AboutSection />
@@ -134,7 +136,7 @@ export default function App() {
           <ContactSection onOpenResume={() => setIsResumeOpen(true)} />
 
           {/* Unified Footer */}
-          <Footer />
+          <Footer theme={theme} />
         </main>
       </div>
 

@@ -1,28 +1,33 @@
-import React, { useState, useEffect } from 'react';
-import { Drawer, ConfigProvider, theme as antTheme } from 'antd';
-import { Project } from '../types';
+import { ConfigProvider, Drawer, theme as antTheme } from "antd";
 import {
+  Award,
+  Check,
+  Copy,
+  Cpu,
+  Database,
   ExternalLink,
   Github,
-  Terminal,
-  Copy,
-  Check,
-  ZoomIn,
-  X,
-  ShieldAlert,
-  Award,
   Layers,
   Server,
-  Database,
-  Cpu
-} from 'lucide-react';
+  ShieldAlert,
+  Terminal,
+  X,
+  ZoomIn,
+} from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Project } from "../types";
 
 interface ProjectDrawerProps {
   project: Project | null;
   isOpen: boolean;
   onClose: () => void;
-  theme: 'light' | 'dark';
-  onOpenImage?: (imageUrl: string, title: string, caption?: string, tag?: string) => void;
+  theme: "light" | "dark";
+  onOpenImage?: (
+    imageUrl: string,
+    title: string,
+    caption?: string,
+    tag?: string,
+  ) => void;
 }
 
 export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
@@ -55,24 +60,32 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
     project.galleryImages && project.galleryImages.length > 0
       ? project.galleryImages
       : project.imageUrl
-        ? [{ url: project.imageUrl, title: `${project.name} Interface`, caption: project.tagline }]
+        ? [
+            {
+              url: project.imageUrl,
+              title: `${project.name} Interface`,
+              caption: project.tagline,
+            },
+          ]
         : [];
 
   // Create two identical halves for smooth infinite 50% marquee looping
   const repeatedHalf =
-    screenshots.length >= 3
-      ? screenshots
-      : [...screenshots, ...screenshots];
+    screenshots.length >= 3 ? screenshots : [...screenshots, ...screenshots];
   const marqueeList = [...repeatedHalf, ...repeatedHalf];
 
-  const handleOpenScreenshot = (img: { url: string; title?: string; caption?: string }) => {
+  const handleOpenScreenshot = (img: {
+    url: string;
+    title?: string;
+    caption?: string;
+  }) => {
     setIsMarqueePaused(true);
     if (onOpenImage) {
       onOpenImage(
         img.url,
-        `${project.name} — ${img.title || 'Screenshot'}`,
+        `${project.name} — ${img.title || "Screenshot"}`,
         img.caption,
-        project.name
+        project.name,
       );
     }
   };
@@ -80,16 +93,18 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
   return (
     <ConfigProvider
       theme={{
-        algorithm: theme === 'dark' ? antTheme.darkAlgorithm : antTheme.defaultAlgorithm,
+        algorithm:
+          theme === "dark" ? antTheme.darkAlgorithm : antTheme.defaultAlgorithm,
         token: {
-          colorPrimary: theme === 'dark' ? '#ffffff' : '#000000',
-          fontFamily: "'Raleway', -apple-system, BlinkMacSystemFont, sans-serif",
+          colorPrimary: theme === "dark" ? "#ffffff" : "#000000",
+          fontFamily:
+            "'Raleway', -apple-system, BlinkMacSystemFont, sans-serif",
           fontFamilyCode: "'Raleway', sans-serif",
-          colorBgElevated: theme === 'dark' ? '#18181b' : '#FFFFFF',
-          colorBorderSecondary: theme === 'dark' ? '#27272a' : '#E5E7EB',
-          colorText: theme === 'dark' ? '#f4f4f5' : '#111827',
-          colorTextSecondary: theme === 'dark' ? '#a1a1aa' : '#4B5563',
-          colorBgMask: 'rgba(0, 0, 0, 0.65)',
+          colorBgElevated: theme === "dark" ? "#18181b" : "#FFFFFF",
+          colorBorderSecondary: theme === "dark" ? "#27272a" : "#E5E7EB",
+          colorText: theme === "dark" ? "#f4f4f5" : "#111827",
+          colorTextSecondary: theme === "dark" ? "#a1a1aa" : "#4B5563",
+          colorBgMask: "rgba(0, 0, 0, 0.65)",
         },
       }}
     >
@@ -98,30 +113,34 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
         onClose={onClose}
         placement="right"
         zIndex={900}
-        size={typeof window !== 'undefined' && window.innerWidth < 768 ? '100%' : 720}
+        size={
+          typeof window !== "undefined" && window.innerWidth < 768
+            ? "100%"
+            : 720
+        }
         styles={{
           mask: {
-            backdropFilter: 'blur(4px)',
-            background: 'rgba(0, 0, 0, 0.5)',
+            backdropFilter: "blur(4px)",
+            background: "rgba(0, 0, 0, 0.5)",
           },
           section: {
-            background: 'var(--surface)',
-            color: 'var(--text-main)',
-            borderLeft: '1px solid var(--border)',
+            background: "var(--surface)",
+            color: "var(--text-main)",
+            borderLeft: "1px solid var(--border)",
           },
           header: {
-            background: 'var(--surface-alt)',
-            borderBottom: '1px solid var(--border)',
-            padding: '14px 20px',
+            background: "var(--surface-alt)",
+            borderBottom: "1px solid var(--border)",
+            padding: "14px 20px",
           },
           body: {
-            background: 'var(--surface)',
+            background: "var(--surface)",
             padding: 0,
           },
           footer: {
-            background: 'var(--surface)',
-            borderTop: '1px solid var(--border)',
-            padding: '12px 20px',
+            background: "var(--surface)",
+            borderTop: "1px solid var(--border)",
+            padding: "12px 20px",
           },
         }}
         closable={false}
@@ -150,7 +169,9 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
                 title={`${project.name} GitHub`}
               >
                 <Github className="h-3.5 w-3.5 text-[var(--text-main)] !text-[var(--text-main)]" />
-                <span className="text-[var(--text-main)] !text-[var(--text-main)] font-sans">GitHub</span>
+                <span className="text-[var(--text-main)] !text-[var(--text-main)] font-sans">
+                  GitHub
+                </span>
               </a>
             )}
 
@@ -162,7 +183,9 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
                 className="border border-black dark:border-white !border-black dark:!border-white bg-black dark:bg-white !bg-black dark:!bg-white text-white dark:text-black !text-white dark:!text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 hover:!bg-zinc-800 dark:hover:!bg-zinc-200 px-3 py-1.5 text-xs font-sans font-semibold inline-flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs !no-underline"
                 title={`${project.name} Live Link`}
               >
-                <span className="text-white dark:text-black !text-white dark:!text-black font-sans">Live System</span>
+                <span className="text-white dark:text-black !text-white dark:!text-black font-sans">
+                  Live System
+                </span>
                 <ExternalLink className="h-3.5 w-3.5 text-white dark:text-black !text-white dark:!text-black" />
               </a>
             )}
@@ -172,18 +195,18 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
         <div className="divide-y divide-[var(--border)] text-[var(--text-main)] font-sans">
           {/* 1. Overview & Core Context */}
           <div className="p-5 sm:p-6 bg-[var(--surface)] font-sans">
-            <span className="font-sans text-xs font-bold tracking-wider text-[var(--text-main)] uppercase block mb-1.5">
+            <span className="font-sans text-xs font-bold  text-[var(--text-main)] uppercase block mb-1.5">
               Project Overview
             </span>
-            <p className="text-sm sm:text-base text-[var(--text-faint)] leading-relaxed font-sans">
+            <p className="text-sm text-[var(--text-faint)] leading-relaxed font-sans">
               {project.tagline}
             </p>
 
             <div className="mt-3.5 pt-3.5 border-t border-[var(--border)]">
-              <span className="font-sans text-xs font-bold tracking-wider text-[var(--text-main)] uppercase block mb-1">
+              <span className="font-sans text-xs font-bold  text-[var(--text-main)] uppercase block mb-1">
                 The System
               </span>
-              <p className="text-xs sm:text-sm text-[var(--text-faint)] leading-relaxed font-sans">
+              <p className="text-sm text-[var(--text-faint)] leading-relaxed font-sans">
                 {project.overview || project.solution}
               </p>
             </div>
@@ -193,7 +216,9 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
               <div className="mt-4 flex items-center justify-between gap-2 border border-[var(--border)] bg-[var(--surface-alt)]/40 p-2.5 sm:px-3.5 font-sans">
                 <div className="flex items-center gap-2 overflow-x-auto">
                   <Terminal className="h-3.5 w-3.5 text-[var(--text-main)] shrink-0" />
-                  <span className="font-sans text-xs text-[var(--text-main)] font-bold shrink-0">Terminal:</span>
+                  <span className="font-sans text-xs text-[var(--text-main)] font-bold shrink-0">
+                    Terminal:
+                  </span>
                   <code className="font-sans text-xs text-[var(--text-main)] select-all whitespace-nowrap bg-[var(--surface-alt)] px-1.5 py-0.5 rounded-none font-semibold">
                     {project.cliCommand}
                   </code>
@@ -222,27 +247,6 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
           {/* 2. Visual Interface Preview: Cover Image Only */}
           {project.imageUrl && (
             <div className="p-5 sm:p-6 bg-[var(--surface)] font-sans">
-              <div className="flex items-center justify-between mb-2.5">
-                <span className="font-sans text-xs font-bold tracking-wider text-[var(--text-main)] uppercase">
-                  Cover Interface
-                </span>
-                {onOpenImage && (
-                  <button
-                    onClick={() =>
-                      handleOpenScreenshot({
-                        url: project.imageUrl,
-                        title: `${project.name} Cover Interface`,
-                        caption: project.tagline
-                      })
-                    }
-                    className="font-sans text-xs font-bold text-[var(--text-main)] hover:underline inline-flex items-center gap-1 cursor-pointer"
-                  >
-                    <ZoomIn className="h-3.5 w-3.5 text-[var(--text-main)]" />
-                    <span>Expand</span>
-                  </button>
-                )}
-              </div>
-
               {/* Cover Image Viewport */}
               <div
                 className="group relative overflow-hidden border border-[var(--border)] bg-black/5 cursor-pointer"
@@ -250,7 +254,7 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
                   handleOpenScreenshot({
                     url: project.imageUrl,
                     title: `${project.name} Cover Interface`,
-                    caption: project.tagline
+                    caption: project.tagline,
                   })
                 }
               >
@@ -265,16 +269,6 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
                   <span>Click to Zoom Cover</span>
                 </div>
               </div>
-
-              {/* Cover Details */}
-              <div className="mt-2.5 p-3 border border-[var(--border)] bg-[var(--surface-alt)]/25 font-sans">
-                <div className="font-sans text-xs font-bold text-[var(--text-main)]">
-                  {project.name} Primary View
-                </div>
-                <p className="mt-0.5 text-xs text-[var(--text-faint)] leading-relaxed font-sans">
-                  {project.tagline}
-                </p>
-              </div>
             </div>
           )}
 
@@ -282,11 +276,8 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
           {screenshots.length > 0 && (
             <div className="p-5 sm:p-6 bg-[var(--surface)] font-sans overflow-hidden">
               <div className="flex items-center justify-between mb-3">
-                <span className="font-sans text-xs font-bold tracking-wider text-[var(--text-main)] uppercase block">
+                <span className="font-sans text-xs font-bold  text-[var(--text-main)] uppercase block">
                   Screenshots &amp; Interface Gallery
-                </span>
-                <span className="font-mono text-[11px] text-[var(--text-faint)] hidden sm:inline">
-                  (Hover to pause)
                 </span>
               </div>
 
@@ -298,10 +289,10 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
               >
                 <div
                   className={`animate-marquee-drawer flex items-stretch gap-3 ${
-                    isMarqueePaused ? 'is-paused' : ''
+                    isMarqueePaused ? "is-paused" : ""
                   }`}
                   style={{
-                    animationPlayState: isMarqueePaused ? 'paused' : undefined
+                    animationPlayState: isMarqueePaused ? "paused" : undefined,
                   }}
                 >
                   {marqueeList.map((img, idx) => (
@@ -338,15 +329,6 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
                             </p>
                           )}
                         </div>
-                        <button
-                          type="button"
-                          onClick={() => handleOpenScreenshot(img)}
-                          className="inline-flex items-center gap-1 font-sans text-xs font-bold text-[var(--text-main)] hover:underline cursor-pointer shrink-0 border border-[var(--border)] bg-[var(--surface)] px-2 py-1"
-                          title="Expand screenshot"
-                        >
-                          <ZoomIn className="h-3 w-3" />
-                          <span>Expand</span>
-                        </button>
                       </div>
                     </div>
                   ))}
@@ -358,7 +340,7 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
           {/* 4. The Problem & The Solution */}
           <div className="p-5 sm:p-6 bg-[var(--surface)] space-y-4 font-sans">
             <div>
-              <span className="font-sans text-xs font-bold tracking-wider text-[var(--text-main)] uppercase block mb-1.5">
+              <span className="font-sans text-xs font-bold  text-[var(--text-main)] uppercase block mb-1.5">
                 The Problem
               </span>
               <p className="text-xs sm:text-sm text-[var(--text-faint)] leading-relaxed font-sans">
@@ -367,7 +349,7 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
             </div>
 
             <div className="pt-4 border-t border-[var(--border)]">
-              <span className="font-sans text-xs font-bold tracking-wider text-[var(--text-main)] uppercase block mb-1.5">
+              <span className="font-sans text-xs font-bold  text-[var(--text-main)] uppercase block mb-1.5">
                 The Solution
               </span>
               <p className="text-xs sm:text-sm text-[var(--text-faint)] leading-relaxed font-sans">
@@ -378,26 +360,30 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
 
           {/* 5. Role */}
           <div className="p-5 sm:p-6 bg-[var(--surface)] font-sans">
-            <span className="font-sans text-xs font-bold tracking-wider text-[var(--text-main)] uppercase block mb-1.5">
+            <span className="font-sans text-xs font-bold  text-[var(--text-main)] uppercase block mb-1.5">
               Role
             </span>
 
             {project.role && (
-              <p className="text-xs sm:text-sm text-[var(--text-main)] font-bold leading-relaxed mb-3 font-sans">
+              <p className="text-xs sm:text-sm text-[var(--text-faint)] mb-3 font-sans">
                 {project.role}
               </p>
             )}
 
             {project.myContribution && project.myContribution.length > 0 && (
               <>
-                <p className="text-xs font-bold text-[var(--text-main)] uppercase tracking-wider mb-2.5 font-sans">
+                <p className="text-xs font-bold text-[var(--text-main)] uppercase  mb-2.5 font-sans">
                   Core responsibilities &amp; deliverables shipped:
                 </p>
                 <ul className="space-y-2 text-xs sm:text-sm font-sans">
                   {project.myContribution.map((item, idx) => (
                     <li key={idx} className="flex items-start gap-2.5">
-                      <span className="text-[var(--text-main)] shrink-0 mt-0.5 select-none font-bold">▪</span>
-                      <span className="leading-relaxed text-[var(--text-faint)] font-sans">{item}</span>
+                      <span className="text-[var(--text-main)] shrink-0 mt-0.5 select-none font-bold">
+                        ▪
+                      </span>
+                      <span className="leading-relaxed text-[var(--text-faint)] font-sans">
+                        {item}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -407,7 +393,7 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
 
           {/* 6. System Architecture */}
           <div className="p-5 sm:p-6 bg-[var(--surface)] font-sans">
-            <span className="font-sans text-xs font-bold tracking-wider text-[var(--text-main)] uppercase block mb-1.5">
+            <span className="font-sans text-xs font-bold  text-[var(--text-main)] uppercase block mb-1.5">
               System Architecture
             </span>
             <p className="text-xs text-[var(--text-faint)] mb-3 font-sans">
@@ -417,49 +403,49 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-sans">
               {/* Frontend */}
               <div className="p-3.5 border border-[var(--border)] bg-[var(--surface-alt)]/25">
-                <div className="flex items-center gap-1.5 font-sans text-xs font-bold text-[var(--text-main)] uppercase tracking-wider mb-1">
+                <div className="flex items-center gap-1.5 font-sans text-xs font-bold text-[var(--text-main)] uppercase  mb-1">
                   <Layers className="h-3.5 w-3.5 text-[var(--text-main)]" />
                   <span>Frontend Architecture</span>
                 </div>
                 <p className="text-xs text-[var(--text-faint)] leading-relaxed font-sans">
                   {project.architecture?.frontend ||
-                    `${project.techStack.filter((t) => ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Redux Toolkit', 'Ant Design'].includes(t)).join(', ')} client application.`}
+                    `${project.techStack.filter((t) => ["React", "Next.js", "TypeScript", "Tailwind CSS", "Redux Toolkit", "Ant Design"].includes(t)).join(", ")} client application.`}
                 </p>
               </div>
 
               {/* Backend */}
               <div className="p-3.5 border border-[var(--border)] bg-[var(--surface-alt)]/25">
-                <div className="flex items-center gap-1.5 font-sans text-xs font-bold text-[var(--text-main)] uppercase tracking-wider mb-1">
+                <div className="flex items-center gap-1.5 font-sans text-xs font-bold text-[var(--text-main)] uppercase  mb-1">
                   <Server className="h-3.5 w-3.5 text-[var(--text-main)]" />
                   <span>Backend &amp; Services</span>
                 </div>
                 <p className="text-xs text-[var(--text-faint)] leading-relaxed font-sans">
                   {project.architecture?.backend ||
-                    `${project.techStack.filter((t) => ['NestJS', 'Node.js', 'Express', 'BullMQ', 'Puppeteer'].includes(t)).join(', ')} modular service layer.`}
+                    `${project.techStack.filter((t) => ["NestJS", "Node.js", "Express", "BullMQ", "Puppeteer"].includes(t)).join(", ")} modular service layer.`}
                 </p>
               </div>
 
               {/* Database */}
               <div className="p-3.5 border border-[var(--border)] bg-[var(--surface-alt)]/25">
-                <div className="flex items-center gap-1.5 font-sans text-xs font-bold text-[var(--text-main)] uppercase tracking-wider mb-1">
+                <div className="flex items-center gap-1.5 font-sans text-xs font-bold text-[var(--text-main)] uppercase  mb-1">
                   <Database className="h-3.5 w-3.5 text-[var(--text-main)]" />
                   <span>Database &amp; Storage</span>
                 </div>
                 <p className="text-xs text-[var(--text-faint)] leading-relaxed font-sans">
                   {project.architecture?.database ||
-                    `${project.techStack.filter((t) => ['PostgreSQL', 'Prisma', 'MongoDB', 'Redis'].includes(t)).join(', ')} data tier.`}
+                    `${project.techStack.filter((t) => ["PostgreSQL", "Prisma", "MongoDB", "Redis"].includes(t)).join(", ")} data tier.`}
                 </p>
               </div>
 
               {/* Cloud & Infrastructure */}
               <div className="p-3.5 border border-[var(--border)] bg-[var(--surface-alt)]/25">
-                <div className="flex items-center gap-1.5 font-sans text-xs font-bold text-[var(--text-main)] uppercase tracking-wider mb-1">
+                <div className="flex items-center gap-1.5 font-sans text-xs font-bold text-[var(--text-main)] uppercase  mb-1">
                   <Cpu className="h-3.5 w-3.5 text-[var(--text-main)]" />
                   <span>Cloud &amp; Infrastructure</span>
                 </div>
                 <p className="text-xs text-[var(--text-faint)] leading-relaxed font-sans">
                   {project.architecture?.infrastructure ||
-                    `${project.techStack.filter((t) => ['AWS', 'Oracle Cloud', 'Docker', 'CI/CD', 'Stripe', 'OpenAI API'].includes(t)).join(', ')} runtime &amp; integrations.`}
+                    `${project.techStack.filter((t) => ["AWS", "Oracle Cloud", "Docker", "CI/CD", "Stripe", "OpenAI API"].includes(t)).join(", ")} runtime &amp; integrations.`}
                 </p>
               </div>
             </div>
@@ -468,7 +454,7 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
           {/* 7. Engineering Challenges */}
           {project.challenges && project.challenges.length > 0 && (
             <div className="p-5 sm:p-6 bg-[var(--surface)] font-sans">
-              <span className="font-sans text-xs font-bold tracking-wider text-[var(--text-main)] uppercase block mb-1.5">
+              <span className="font-sans text-xs font-bold  text-[var(--text-main)] uppercase block mb-1.5">
                 Engineering Challenges
               </span>
               <p className="text-xs text-[var(--text-faint)] mb-3 font-sans">
@@ -490,14 +476,20 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
 
           {/* 8. Results & Business Impact */}
           <div className="p-5 sm:p-6 bg-[var(--surface)] font-sans">
-            <span className="font-sans text-xs font-bold tracking-wider text-[var(--text-main)] uppercase block mb-1.5">
+            <span className="font-sans text-xs font-bold  text-[var(--text-main)] uppercase block mb-1.5">
               Results &amp; Impact
             </span>
             <ul className="space-y-2.5 text-xs sm:text-sm font-sans">
-              {(project.results || project.outcome || project.architectureDetails).map((detail, idx) => (
+              {(
+                project.results ||
+                project.outcome ||
+                project.architectureDetails
+              ).map((detail, idx) => (
                 <li key={idx} className="flex items-start gap-2.5 font-sans">
                   <Award className="h-4 w-4 text-emerald-500 select-none shrink-0 mt-0.5" />
-                  <span className="leading-relaxed text-[var(--text-faint)] font-medium font-sans">{detail}</span>
+                  <span className="leading-relaxed text-[var(--text-faint)] font-medium font-sans">
+                    {detail}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -505,7 +497,7 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
 
           {/* 9. Technologies Used (Clean Tag List) */}
           <div className="p-5 sm:p-6 bg-[var(--surface)] font-sans">
-            <span className="font-sans text-xs font-bold tracking-wider text-[var(--text-main)] uppercase block mb-2.5">
+            <span className="font-sans text-xs font-bold  text-[var(--text-main)] uppercase block mb-2.5">
               Technologies Used
             </span>
             <div className="flex flex-wrap gap-2">

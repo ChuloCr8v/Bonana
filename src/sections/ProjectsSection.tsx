@@ -1,45 +1,50 @@
-import React, { useState } from 'react';
-import { FEATURED_PROJECTS, OTHER_PROJECTS } from '../data/portfolioData';
-import { ProjectCard } from '../components/ProjectCard';
-import { ProjectDrawer } from '../components/ProjectDrawer';
-import { HangingSectionHeader } from '../components/HangingSectionHeader';
-import { Project } from '../types';
-import { Github, ExternalLink } from 'lucide-react';
-import { motion } from 'motion/react';
+import React, { useState } from "react";
+import { FEATURED_PROJECTS, OTHER_PROJECTS } from "../data/portfolioData";
+import { ProjectCard } from "../components/ProjectCard";
+import { ProjectDrawer } from "../components/ProjectDrawer";
+import { HangingSectionHeader } from "../components/HangingSectionHeader";
+import { Project } from "../types";
+import { Github, ExternalLink } from "lucide-react";
+import { motion } from "motion/react";
 
 interface ProjectsSectionProps {
-  theme?: 'light' | 'dark';
-  onOpenImage?: (imageUrl: string, title: string, caption?: string, tag?: string) => void;
+  theme?: "light" | "dark";
+  onOpenImage?: (
+    imageUrl: string,
+    title: string,
+    caption?: string,
+    tag?: string,
+  ) => void;
 }
 
 export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
-  theme = 'light',
+  theme = "light",
   onOpenImage,
 }) => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
 
   return (
-    <section id="projects" className="w-full border-b border-[var(--border)] bg-[var(--surface)]">
+    <section
+      id="projects"
+      className="w-full border-b border-[var(--border)] bg-[var(--surface)]"
+    >
       {/* Hanging Plaque Section Header */}
-      <HangingSectionHeader
-        title="Featured Systems & SaaS Products"
-        as="h2"
-      />
+      <HangingSectionHeader title="Featured Systems & SaaS Products" as="h2" />
 
       {/* Featured Projects: 1-Column on Mobile, 2-Column on Desktop with solid border-b */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.1 }}
-        transition={{ duration: 0.45, ease: 'easeOut' }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
         className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 divide-[var(--border)] border-b border-[var(--border)] bg-[var(--surface)]"
       >
         {FEATURED_PROJECTS.map((project, index) => (
           <div
             key={project.id}
             className={`
-              ${index % 2 === 0 ? 'md:border-r border-[var(--border)]' : ''}
-              ${index >= 2 ? 'md:border-t border-[var(--border)]' : ''}
+              ${index % 2 === 0 ? "md:border-r border-[var(--border)]" : ""}
+              ${index >= 2 ? "md:border-t border-[var(--border)]" : ""}
             `}
           >
             <ProjectCard
@@ -63,7 +68,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.1 }}
-        transition={{ duration: 0.45, ease: 'easeOut' }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
         className="grid grid-cols-1 md:grid-cols-2 divide-y divide-[var(--border)] md:divide-y-0 bg-[var(--surface)]"
       >
         {OTHER_PROJECTS.map((project, index) => {
@@ -77,70 +82,70 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
               role="button"
               onClick={() => setSelectedProject(project)}
               onKeyDown={(e) => {
-                if (e.key === 'Enter' || e.key === ' ') {
+                if (e.key === "Enter" || e.key === " ") {
                   e.preventDefault();
                   setSelectedProject(project);
                 }
               }}
-              className={`group p-5 sm:p-6 flex flex-col justify-between bg-[var(--surface)] hover:bg-[var(--surface-alt)]/40 transition-colors duration-150 cursor-pointer focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[var(--accent)] ${
-                isLeftCol ? 'md:border-r border-[var(--border)]' : ''
-              } ${!isTopRow ? 'md:border-t border-[var(--border)]' : ''}`}
+              className={`group flex flex-col justify-between bg-[var(--surface)] hover:bg-[var(--surface-alt)]/40 transition-colors duration-150 cursor-pointer focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[var(--accent)] ${
+                isLeftCol ? "md:border-r border-[var(--border)]" : ""
+              } ${!isTopRow ? "md:border-t border-[var(--border)]" : ""}`}
             >
-            <div>
-              <div className="flex items-center justify-between gap-2">
-                <h4 className="text-base font-semibold text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors">
-                  {project.name}
-                </h4>
+              <div className="p-5">
+                <div className="flex items-center justify-between gap-2 ">
+                  <h4 className="text-base font-semibold text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors">
+                    {project.name}
+                  </h4>
 
-                {/* Consistent GitHub and Live URL action buttons */}
-                <div className="flex items-center gap-2 shrink-0">
-                  {project.links?.github && (
-                    <a
-                      href={project.links.github}
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="border border-[var(--border)] bg-transparent hover:bg-[var(--surface-alt)] text-[var(--text-main)] px-2.5 py-1 text-[11px] font-mono font-medium inline-flex items-center gap-1.5 transition-colors cursor-pointer"
-                      title={`${project.name} GitHub`}
-                    >
-                      <Github className="h-3 w-3" />
-                      <span>GitHub</span>
-                    </a>
-                  )}
+                  {/* Consistent GitHub and Live URL action buttons */}
+                  <div className="flex items-center gap-2 shrink-0">
+                    {project.links?.github && (
+                      <a
+                        href={project.links.github}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="border border-[var(--border)] bg-transparent hover:bg-[var(--surface-alt)] text-[var(--text-main)] px-2.5 py-1 text-[11px] font-mono font-medium inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                        title={`${project.name} GitHub`}
+                      >
+                        <Github className="h-3 w-3" />
+                        <span className="hidden lg:flex">GitHub</span>
+                      </a>
+                    )}
 
-                  {project.links?.live && (
-                    <a
-                      href={project.links.live}
-                      target="_blank"
-                      rel="noreferrer"
-                      onClick={(e) => e.stopPropagation()}
-                      className="border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 px-2.5 py-1 text-[11px] font-mono font-medium inline-flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs"
-                      title={`${project.name} Live URL`}
+                    {project.links?.live && (
+                      <a
+                        href={project.links.live}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 px-2.5 py-1 text-[11px] font-mono font-medium inline-flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs"
+                        title={`${project.name} Live URL`}
+                      >
+                        <span className="hidden lg:flex">Live URL</span>
+                        <ExternalLink className="h-3 w-3" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+
+                <p className="mt-6 text-xs font-medium text-[var(--text-muted)] leading-relaxed">
+                  {project.tagline}
+                </p>
+
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {project.techStack.map((t) => (
+                    <span
+                      key={t}
+                      className="font-mono text-[10px] px-2 py-0.5 bg-[var(--surface-alt)] border border-[var(--border)] text-[var(--text-main)]"
                     >
-                      <span>Live URL</span>
-                      <ExternalLink className="h-3 w-3" />
-                    </a>
-                  )}
+                      {t}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              <p className="mt-1.5 text-xs font-medium text-[var(--text-muted)] leading-relaxed">
-                {project.tagline}
-              </p>
-
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {project.techStack.map((t) => (
-                  <span
-                    key={t}
-                    className="font-mono text-[10px] px-2 py-0.5 bg-[var(--surface-alt)] border border-[var(--border)] text-[var(--text-main)]"
-                  >
-                    {t}
-                  </span>
-                ))}
-              </div>
-              </div>
-
-              <div className="mt-4 pt-3 border-t border-[var(--border)] flex items-center justify-between text-xs font-mono text-[var(--text-muted)]">
+              <div className="hidden lg:flex mt-4 py-3 px-5 border-t last:border-b border-[var(--border)] bg-[var(--surface-alt)]/35 flex items-center justify-between text-xs font-mono text-[var(--text-muted)]">
                 <span className="font-semibold text-[var(--text-main)]">
                   {project.category}
                 </span>
