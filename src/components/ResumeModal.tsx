@@ -1,13 +1,16 @@
-import React from 'react';
-import { X, Download, FileText, ExternalLink } from 'lucide-react';
-import { CV_DATA } from '../data/cv';
+import React from "react";
+import { X, Download, FileText, ExternalLink } from "lucide-react";
+import { CV_DATA } from "../data/cv";
 
 interface ResumeModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => {
+export const ResumeModal: React.FC<ResumeModalProps> = ({
+  isOpen,
+  onClose,
+}) => {
   if (!isOpen) return null;
 
   return (
@@ -28,10 +31,13 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               <FileText className="h-4 w-4 text-[var(--accent)]" />
             </div>
             <div>
-              <h2 id="resume-modal-title" className="text-sm sm:text-base font-bold text-[var(--text-main)] leading-tight">
+              <h2
+                id="resume-modal-title"
+                className="text-sm sm:text-base font-bold text-[var(--text-main)] leading-tight"
+              >
                 {CV_DATA.header.name} — Resume
               </h2>
-              <p className="text-[11px] font-mono text-[var(--text-muted)] hidden sm:block">
+              <p className="text-[11px]  text-[var(--text-muted)] hidden sm:block">
                 Senior Full-Stack Engineer &amp; Engineering Team Lead
               </p>
             </div>
@@ -43,7 +49,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               href={CV_DATA.downloadUrl}
               target="_blank"
               rel="noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 border border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--surface-alt)] text-[var(--text-main)] px-3 py-1.5 text-xs font-mono font-medium transition-colors cursor-pointer"
+              className="hidden sm:inline-flex items-center gap-1.5 border border-[var(--border)] bg-[var(--surface)] hover:bg-[var(--surface-alt)] text-[var(--text-main)] px-3 py-1.5 text-xs  font-medium transition-colors cursor-pointer"
               title="Open PDF in new tab"
             >
               <ExternalLink className="h-3.5 w-3.5 text-[var(--text-muted)]" />
@@ -56,7 +62,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               download={CV_DATA.fileName}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black px-3.5 py-1.5 text-xs font-mono font-semibold transition-opacity hover:opacity-90 shadow-2xs cursor-pointer"
+              className="inline-flex items-center gap-1.5 border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black px-3.5 py-1.5 text-xs  font-semibold transition-opacity hover:opacity-90 shadow-2xs cursor-pointer"
               title="Download PDF"
             >
               <Download className="h-3.5 w-3.5" />
@@ -92,9 +98,12 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
               <div className="flex flex-col items-center justify-center h-full p-8 text-center bg-[var(--surface)] text-[var(--text-main)] space-y-4">
                 <FileText className="h-12 w-12 text-[var(--text-muted)] mx-auto" />
                 <div>
-                  <h3 className="text-base font-bold text-[var(--text-main)]">PDF Document Ready</h3>
+                  <h3 className="text-base font-bold text-[var(--text-main)]">
+                    PDF Document Ready
+                  </h3>
                   <p className="text-xs text-[var(--text-muted)] mt-1 max-w-sm mx-auto">
-                    Your browser does not support embedded PDF rendering. You can preview or download the file directly:
+                    Your browser does not support embedded PDF rendering. You
+                    can preview or download the file directly:
                   </p>
                 </div>
                 <div className="flex items-center gap-3 pt-2">
@@ -102,7 +111,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                     href={CV_DATA.downloadUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 border border-[var(--border)] bg-[var(--surface-alt)] px-4 py-2 text-xs font-mono font-medium hover:text-[var(--text-main)]"
+                    className="inline-flex items-center gap-1.5 border border-[var(--border)] bg-[var(--surface-alt)] px-4 py-2 text-xs  font-medium hover:text-[var(--text-main)]"
                   >
                     <ExternalLink className="h-3.5 w-3.5" />
                     <span>Open in New Tab</span>
@@ -110,7 +119,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
                   <a
                     href={CV_DATA.downloadUrl}
                     download={CV_DATA.fileName}
-                    className="inline-flex items-center gap-1.5 border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black px-4 py-2 text-xs font-mono font-semibold"
+                    className="inline-flex items-center gap-1.5 border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black px-4 py-2 text-xs  font-semibold"
                   >
                     <Download className="h-3.5 w-3.5" />
                     <span>Download PDF</span>
@@ -122,7 +131,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
         </div>
 
         {/* Modal Footer */}
-        <div className="flex items-center justify-between border-t border-[var(--border)] px-4 sm:px-6 py-2.5 bg-[var(--surface-alt)] text-[11px] font-mono text-[var(--text-muted)] shrink-0">
+        <div className="flex items-center justify-between border-t border-[var(--border)] px-4 sm:px-6 py-2.5 bg-[var(--surface-alt)] text-[11px]  text-[var(--text-muted)] shrink-0">
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block" />
             <span className="truncate max-w-[280px] sm:max-w-none text-[var(--text-main)] font-medium">
@@ -132,7 +141,11 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
           <div className="flex items-center gap-3 text-[var(--text-faint)]">
             <span className="hidden sm:inline">
-              Press <kbd className="px-1 py-0.5 bg-[var(--surface)] border border-[var(--border)] rounded text-[10px] text-[var(--text-main)]">Esc</kbd> to close
+              Press{" "}
+              <kbd className="px-1 py-0.5 bg-[var(--surface)] border border-[var(--border)] rounded text-[10px] text-[var(--text-main)]">
+                Esc
+              </kbd>{" "}
+              to close
             </span>
           </div>
         </div>

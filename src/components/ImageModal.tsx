@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { X, ZoomIn, Download, ExternalLink } from 'lucide-react';
+import React, { useEffect } from "react";
+import { X, ZoomIn, Download, ExternalLink } from "lucide-react";
 
 interface ImageModalProps {
   isOpen: boolean;
@@ -16,16 +16,16 @@ export const ImageModal: React.FC<ImageModalProps> = ({
   imageUrl,
   title,
   caption,
-  tag
+  tag,
 }) => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape' && isOpen) {
+      if (e.key === "Escape" && isOpen) {
         onClose();
       }
     };
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isOpen, onClose]);
 
   if (!isOpen) return null;
@@ -45,7 +45,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({
         <div className="flex items-center justify-between border-b border-[var(--border)] px-4 sm:px-6 py-3 bg-[var(--surface-alt)]">
           <div className="flex items-center gap-2 sm:gap-3 overflow-hidden">
             {tag && (
-              <span className="shrink-0 font-mono text-[10px] sm:text-xs px-2 py-0.5 border border-[var(--border)] bg-[var(--surface)] text-[var(--accent)] font-medium">
+              <span className="shrink-0 hidden text-[10px] sm:text-xs px-2 py-0.5 border border-[var(--border)] bg-[var(--surface)] text-[var(--accent)] font-medium">
                 {tag}
               </span>
             )}
@@ -86,9 +86,11 @@ export const ImageModal: React.FC<ImageModalProps> = ({
 
         {/* Caption Bar */}
         {caption && (
-          <div className="border-t border-[var(--border)] px-4 sm:px-6 py-2.5 bg-[var(--surface)] text-xs text-[var(--text-muted)] font-mono flex items-center justify-between">
+          <div className="border-t border-[var(--border)] px-4 sm:px-6 py-2.5 bg-[var(--surface)] text-xs text-[var(--text-muted)]  flex items-center justify-between">
             <span>{caption}</span>
-            <span className="text-[10px] text-[var(--text-faint)] hidden sm:inline">ESC to close</span>
+            <span className="text-[10px] text-[var(--text-faint)] hidden sm:inline">
+              ESC to close
+            </span>
           </div>
         )}
       </div>

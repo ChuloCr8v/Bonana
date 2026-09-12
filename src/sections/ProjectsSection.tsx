@@ -109,7 +109,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                         target="_blank"
                         rel="noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="border border-[var(--border)] bg-transparent hover:bg-[var(--surface-alt)] text-[var(--text-main)] px-2.5 py-1 text-[11px] font-mono font-medium inline-flex items-center gap-1.5 transition-colors cursor-pointer"
+                        className="border border-[var(--border)] bg-transparent hover:bg-[var(--surface-alt)] text-[var(--text-main)] px-2.5 py-1 text-[11px]  font-medium inline-flex items-center gap-1.5 transition-colors cursor-pointer"
                         title={`${project.name} GitHub`}
                       >
                         <Github className="h-3 w-3" />
@@ -123,7 +123,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                         target="_blank"
                         rel="noreferrer"
                         onClick={(e) => e.stopPropagation()}
-                        className="border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 px-2.5 py-1 text-[11px] font-mono font-medium inline-flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs"
+                        className="border border-black dark:border-white bg-black dark:bg-white text-white dark:text-black hover:bg-zinc-800 dark:hover:bg-zinc-200 px-2.5 py-1 text-[11px]  font-medium inline-flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs"
                         title={`${project.name} Live URL`}
                       >
                         <span className="hidden lg:flex">Live URL</span>
@@ -141,7 +141,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                   {project.techStack.map((t) => (
                     <span
                       key={t}
-                      className="font-mono text-[10px] px-2 py-0.5 bg-[var(--surface-alt)] border border-[var(--border)] text-[var(--text-main)]"
+                      className=" text-[10px] px-2 py-0.5 bg-[var(--surface-alt)] border border-[var(--border)] text-[var(--text-main)]"
                     >
                       {t}
                     </span>
@@ -149,7 +149,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                 </div>
               </div>
 
-              <div className="hidden lg:flex mt-4 py-3 px-5 border-t last:border-b border-[var(--border)] bg-[var(--surface-alt)]/35 flex items-center justify-between text-xs font-mono text-[var(--text-muted)]">
+              <div className="hidden lg:flex mt-4 py-3 px-5 border-t last:border-b border-[var(--border)] bg-[var(--surface-alt)]/35 flex items-center justify-between text-xs  text-[var(--text-muted)]">
                 <span className="font-semibold text-[var(--text-main)]">
                   {project.category}
                 </span>
@@ -164,7 +164,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
       </motion.div>
       <HangingSectionHeader
         title="Professional / Client Work"
-        subtitle="Selected Zoracom delivery work across public-sector compliance, recruiting operations, and service management."
+        subtitle="Selected projects across public-sector compliance, recruiting operations, and service management."
         as="h3"
       />
       <motion.div
@@ -196,7 +196,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                 {project.techStack.map((t) => (
                   <span
                     key={t}
-                    className="font-mono text-[10px] px-2 py-0.5 bg-[var(--surface-alt)] border border-[var(--border)] text-[var(--text-main)]"
+                    className=" text-[10px] px-2 py-0.5 bg-[var(--surface-alt)] border border-[var(--border)] text-[var(--text-main)]"
                   >
                     {t}
                   </span>
@@ -204,7 +204,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
               </div>
             </div>
 
-            {/* <div className="py-3 px-5 border-t border-[var(--border)] bg-[var(--surface-alt)]/35 text-[11px] font-mono font-medium text-[var(--text-muted)]">
+            {/* <div className="py-3 px-5 border-t border-[var(--border)] bg-[var(--surface-alt)]/35 text-[11px]  font-medium text-[var(--text-muted)]">
               Built at Zoracom � confidential client project.
             </div> */}
           </article>

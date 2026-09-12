@@ -21,7 +21,7 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
             </span>
           </div>
           <div className="p-2 flex items-center justify-center">
-            <span className="text-xs font-mono font-bold text-[var(--text-muted)] tracking-wider">
+            <span className="text-xs  font-bold text-[var(--text-muted)] tracking-wider">
               NEST.JS
             </span>
           </div>
@@ -37,7 +37,7 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
             <span className="font-extrabold text-sm tracking-tight uppercase">
               REACT.JS
             </span>
-            <span className="text-[10px] font-mono opacity-80">v19+</span>
+            <span className="text-[10px]  opacity-80">v19+</span>
           </div>
           <div className="p-2 flex items-center justify-center bg-[var(--surface-alt)]/30">
             <span className="text-xs font-serif italic text-[var(--text-muted)]">
@@ -53,15 +53,13 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
           className="h-[44px] shrink-0 grid grid-cols-5 divide-x divide-[var(--border)] bg-[var(--surface)]"
         >
           <div className="col-span-3 p-2 px-2.5 flex items-center justify-between">
-            <span className="text-xs font-bold font-mono tracking-tight text-[var(--text-main)]">
+            <span className="text-xs font-bold  tracking-tight text-[var(--text-main)]">
               POSTGRESQL
             </span>
-            <span className="text-[9px] font-mono text-[var(--text-faint)]">
-              ACID
-            </span>
+            <span className="text-[9px]  text-[var(--text-faint)]">ACID</span>
           </div>
           <div className="col-span-2 p-2 flex items-center justify-center bg-[var(--surface-alt)]/40">
-            <span className="text-[11px] font-mono font-bold text-[var(--text-main)]">
+            <span className="text-[11px]  font-bold text-[var(--text-main)]">
               REDIS
             </span>
           </div>
@@ -73,10 +71,10 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
           key={`${keyPrefix}-3`}
           className="h-[44px] shrink-0 p-2 px-3 bg-[var(--surface)] flex items-center justify-between"
         >
-          <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-[var(--text-muted)]">
+          <span className="text-[10px]  tracking-[0.2em] uppercase text-[var(--text-muted)]">
             DISTRIBUTED SYSTEMS
           </span>
-          <span className="text-[9px] font-mono px-1 border border-[var(--border)] text-[var(--text-faint)]">
+          <span className="text-[9px]  px-1 border border-[var(--border)] text-[var(--text-faint)]">
             RPC
           </span>
         </div>
@@ -88,12 +86,12 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
           className="h-[44px] shrink-0 grid grid-cols-2 divide-x divide-[var(--border)] bg-[var(--surface)]"
         >
           <div className="p-2 flex items-center justify-center">
-            <span className="text-xs font-mono font-semibold text-[var(--text-main)]">
+            <span className="text-xs  font-semibold text-[var(--text-main)]">
               DOCKER
             </span>
           </div>
           <div className="p-2 flex items-center justify-center bg-[var(--surface-alt)]/60">
-            <span className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-wider">
+            <span className="text-[10px]  text-[var(--text-muted)] uppercase tracking-wider">
               AWS · OCI
             </span>
           </div>
@@ -106,7 +104,7 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
           className="h-[44px] shrink-0 grid grid-cols-3 divide-x divide-[var(--border)] bg-[var(--surface)]"
         >
           <div className="p-2 flex items-center justify-center">
-            <span className="text-[11px] font-mono text-[var(--text-muted)]">
+            <span className="text-[11px]  text-[var(--text-muted)]">
               PRISMA
             </span>
           </div>
@@ -125,12 +123,12 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
           className="h-[44px] shrink-0 grid grid-cols-2 divide-x divide-[var(--border)] bg-[var(--surface)]"
         >
           <div className="p-2 text-center flex items-center justify-center">
-            <span className="text-[11px] font-mono font-semibold text-[var(--text-main)]">
+            <span className="text-[11px]  font-semibold text-[var(--text-main)]">
               MICROSERVICES
             </span>
           </div>
           <div className="p-2 text-center flex items-center justify-center bg-[var(--surface-alt)]/40">
-            <span className="text-[11px] font-mono text-[var(--text-muted)]">
+            <span className="text-[11px]  text-[var(--text-muted)]">
               REST &amp; GRAPHQL
             </span>
           </div>
@@ -143,17 +141,17 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
           className="h-[44px] shrink-0 grid grid-cols-3 divide-x divide-[var(--border)] bg-[var(--surface)]"
         >
           <div className="p-2 flex items-center justify-center">
-            <span className="text-[10px] font-mono text-[var(--text-faint)] uppercase">
+            <span className="text-[10px]  text-[var(--text-faint)] uppercase">
               STRIPE
             </span>
           </div>
           <div className="p-2 flex items-center justify-center bg-[var(--surface-alt)]/50">
-            <span className="text-[10px] font-mono font-bold text-[var(--text-main)]">
+            <span className="text-[10px]  font-bold text-[var(--text-main)]">
               CI/CD
             </span>
           </div>
           <div className="p-2 flex items-center justify-center">
-            <span className="text-[10px] font-mono text-[var(--text-muted)]">
+            <span className="text-[10px]  text-[var(--text-muted)]">
               PUPPETEER
             </span>
           </div>
@@ -168,7 +166,7 @@ const renderMosaicRow = (rowIndex: number, keyPrefix: string) => {
           <span className="text-base xl:text-lg font-black tracking-tighter text-[var(--text-main)]">
             NEXT.JS 15
           </span>
-          <span className="text-[10px] font-mono text-[var(--text-muted)] border border-[var(--border)] bg-[var(--surface)] px-1.5 py-0.5">
+          <span className="text-[10px]  text-[var(--text-muted)] border border-[var(--border)] bg-[var(--surface)] px-1.5 py-0.5">
             FULL-STACK
           </span>
         </div>
@@ -256,7 +254,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
           transition={{ duration: 0.45, ease: "easeOut" }}
           className="flex-1 py-12 sm:py-16 lg:py-0 px-6 sm:px-8 lg:px-10 flex flex-col justify-center"
         >
-          <div className="max-w-xl space-y-2 sm:space-y-2.5">
+          <div className="max-w-xl space-y-2 sm:space-y-1">
             <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-main)] leading-tight">
               Nkematu Bonaventure
             </h1>
@@ -265,20 +263,20 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
               Full-Stack Developer &amp; Engineering Lead
             </p>
 
-            <p className="text-sm sm:text-base text-[var(--text-muted)] font-normal max-w-xl">
+            <p className="text-sm text-[var(--text-muted)] font-normal max-w-xl">
               I build production web applications, backend systems, and
               developer tools from idea to deployment.
             </p>
 
-            <p className="text-xs sm:text-sm font-mono text-[var(--text-muted)] max-w-xl pt-0.5">
+            <p className="text-xs sm:text-sm  text-[var(--text-muted)] max-w-xl pt-2.5">
               TypeScript &middot; React &middot; NestJS &middot; Next.js
             </p>
 
             {/* Action Row: 2 columns on mobile, flex row on sm+ */}
-            <div className="pt-3 grid grid-cols-2 sm:flex sm:flex-row items-center gap-2.5 max-w-md sm:max-w-none">
+            <div className="pt-8 grid grid-cols-2 sm:flex sm:flex-row items-center gap-2.5 max-w-md sm:max-w-none">
               <a
                 href="#projects"
-                className="border border-[var(--text-main)] bg-[var(--text-main)] text-[var(--canvas)] px-4 py-2 text-xs font-mono font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-1.5 text-center"
+                className="border border-[var(--text-main)] bg-[var(--text-main)] text-[var(--canvas)] px-4 py-2 text-xs  font-medium hover:opacity-90 transition-opacity flex items-center justify-center gap-1.5 text-center"
               >
                 <span>Projects</span>
                 <ArrowUpRight className="h-3.5 w-3.5" />
@@ -286,7 +284,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
 
               <button
                 onClick={onOpenResume}
-                className="flex items-center justify-center gap-1.5 border border-[var(--border)] bg-[var(--surface-alt)] px-4 py-2 text-xs font-mono font-medium text-[var(--text-main)] hover:bg-[var(--surface)] hover:border-[var(--text-main)] transition-colors cursor-pointer text-center"
+                className="flex items-center justify-center gap-1.5 border border-[var(--border)] bg-[var(--surface-alt)] px-4 py-2 text-xs  font-medium text-[var(--text-main)] hover:bg-[var(--surface)] hover:border-[var(--text-main)] transition-colors cursor-pointer text-center"
               >
                 <FileText className="h-3.5 w-3.5 text-[var(--text-muted)]" />
                 <span>My Resume</span>

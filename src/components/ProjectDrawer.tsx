@@ -253,7 +253,7 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
                 onClick={() =>
                   handleOpenScreenshot({
                     url: project.imageUrl,
-                    title: `${project.name} Cover Interface`,
+                    title: `${project.name}`,
                     caption: project.tagline,
                   })
                 }

@@ -38,7 +38,7 @@ export const AboutSection: React.FC = () => {
                 </h4>
 
                 {/* Organization and Date on same line */}
-                <div className="flex flex-wrap items-center gap-2 mt-1.5 font-mono text-xs sm:text-sm text-[var(--text-muted)]">
+                <div className="flex flex-wrap items-center gap-2 mt-1.5  text-xs sm:text-sm text-[var(--text-muted)]">
                   <span className="font-semibold text-[var(--text-main)]">
                     {role.company}
                   </span>
@@ -64,7 +64,7 @@ export const AboutSection: React.FC = () => {
               <ul className="space-y-2.5 text-xs sm:text-sm text-[var(--text-muted)]">
                 {role.responsibilities.map((resp, i) => (
                   <li key={i} className="flex items-start gap-2.5">
-                    <span className="font-mono text-[var(--accent)] text-[12px] select-none shrink-0 mt-0.5">
+                    <span className=" text-[var(--accent)] text-[12px] select-none shrink-0 mt-0.5">
                       ▪
                     </span>
                     <span className="leading-relaxed text-[var(--text-main)]">
@@ -100,7 +100,7 @@ export const AboutSection: React.FC = () => {
           >
             {/* Box 1: Category Box (Flex) */}
             <div className="w-full sm:w-1/3 lg:w-1/4 p-4 sm:p-5 bg-[var(--surface-alt)]/50 border-b sm:border-b-0 sm:border-r border-[var(--border)] flex items-center justify-between sm:justify-start">
-              <span className="font-mono text-xs font-semibold tracking-wide text-[var(--text-main)]">
+              <span className=" text-xs font-semibold tracking-wide text-[var(--text-main)]">
                 {group.category}
               </span>
             </div>
@@ -110,7 +110,7 @@ export const AboutSection: React.FC = () => {
               {group.items.map((tech) => (
                 <span
                   key={tech}
-                  className="font-mono text-xs font-medium px-3 py-1.5 bg-[var(--surface-alt)] border border-[var(--border)] text-[var(--text-main)] rounded-none"
+                  className=" text-xs font-medium px-3 py-1.5 bg-[var(--surface-alt)] border border-[var(--border)] text-[var(--text-main)] rounded-none"
                 >
                   {tech}
                 </span>

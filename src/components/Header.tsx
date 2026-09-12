@@ -62,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Desktop Navigation Links */}
           <nav
             aria-label="Primary Navigation"
-            className="hidden md:flex items-center text-xs font-mono text-[var(--text-muted)]"
+            className="hidden md:flex items-center text-xs  text-[var(--text-muted)]"
           >
             <a
               href="#about"
@@ -116,7 +116,7 @@ export const Header: React.FC<HeaderProps> = ({
               download={CV_DATA.fileName}
               target="_blank"
               rel="noreferrer"
-              className="hidden lg:inline-flex items-center gap-1.5 border border-[var(--border)] bg-[var(--surface-alt)] hover:bg-[var(--surface)] text-[var(--text-main)] px-2.5 py-1.5 text-xs font-mono transition-colors"
+              className="hidden lg:inline-flex items-center gap-1.5 border border-[var(--border)] bg-[var(--surface-alt)] hover:bg-[var(--surface)] text-[var(--text-main)] px-2.5 py-1.5 text-xs  transition-colors"
               title="Download ATS-friendly PDF CV"
             >
               <Download className="h-3.5 w-3.5 text-[var(--accent)]" />
@@ -126,7 +126,7 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Technical Resume Trigger */}
             <button
               onClick={onOpenResume}
-              className="inline-flex items-center gap-1.5 border border-[var(--text-main)] bg-[var(--text-main)] px-3 py-1.5 text-xs font-mono font-medium text-[var(--canvas)] hover:opacity-90 transition-opacity cursor-pointer"
+              className="inline-flex items-center gap-1.5 border border-[var(--text-main)] bg-[var(--text-main)] px-3 py-1.5 text-xs  font-medium text-[var(--canvas)] hover:opacity-90 transition-opacity cursor-pointer"
             >
               <FileText className="h-3.5 w-3.5" />
               <span className="font-semibold">Resume</span>
@@ -137,7 +137,7 @@ export const Header: React.FC<HeaderProps> = ({
               href={PERSONAL_INFO.github}
               target="_blank"
               rel="noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 border border-[var(--border)] bg-[var(--surface)] px-2.5 py-1.5 text-xs font-mono text-[var(--text-muted)] hover:text-[var(--text-main)] hover:border-[var(--text-main)] transition-colors"
+              className="hidden sm:inline-flex items-center gap-1.5 border border-[var(--border)] bg-[var(--surface)] px-2.5 py-1.5 text-xs  text-[var(--text-muted)] hover:text-[var(--text-main)] hover:border-[var(--text-main)] transition-colors"
               title="GitHub Profile"
             >
               <Github className="h-3.5 w-3.5 text-[var(--text-main)]" />
@@ -149,7 +149,7 @@ export const Header: React.FC<HeaderProps> = ({
             {/* Dark / Light Theme Toggle */}
             <button
               onClick={onToggleTheme}
-              className="flex items-center justify-center h-8 w-8 sm:w-auto sm:px-2.5 sm:py-1.5 border border-[var(--border)] bg-[var(--surface-alt)] text-xs font-mono text-[var(--text-main)] hover:border-[var(--text-main)] transition-colors cursor-pointer"
+              className="flex items-center justify-center h-8 w-8 sm:w-auto sm:px-2.5 sm:py-1.5 border border-[var(--border)] bg-[var(--surface-alt)] text-xs  text-[var(--text-main)] hover:border-[var(--text-main)] transition-colors cursor-pointer"
               aria-label={
                 theme === "dark"
                   ? "Switch to light mode"
@@ -191,7 +191,7 @@ export const Header: React.FC<HeaderProps> = ({
 
       {/* Mobile Menu Dropdown */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-[var(--border)] bg-[var(--surface)] text-xs font-mono divide-y divide-[var(--border)]">
+        <div className="md:hidden border-b border-[var(--border)] bg-[var(--surface)] text-xs  divide-y divide-[var(--border)]">
           <a
             href="#about"
             onClick={(e) => {
@@ -259,7 +259,7 @@ export const Header: React.FC<HeaderProps> = ({
                 onOpenResume();
                 setMobileMenuOpen(false);
               }}
-              className="flex-1 py-2 px-3 border border-[var(--text-main)] bg-[var(--text-main)] text-[var(--canvas)] text-center font-medium font-mono text-xs cursor-pointer"
+              className="flex-1 py-2 px-3 border border-[var(--text-main)] bg-[var(--text-main)] text-[var(--canvas)] text-center font-medium  text-xs cursor-pointer"
             >
               Resume &amp; CV
             </button>

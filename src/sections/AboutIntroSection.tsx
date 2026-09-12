@@ -85,11 +85,11 @@ export const AboutIntroSection: React.FC = () => {
         className="bg-[var(--surface)]"
       >
         <div className="p-6 sm:p-8 lg:p-10 space-y-3.5 max-w-4xl">
-          <p className="text-sm sm:text-base text-[var(--text-main)] font-normal leading-relaxed">
+          <p className="text-sm text-[var(--text-main)] font-normal leading-relaxed">
             {PERSONAL_INFO.aboutIntro}
           </p>
 
-          <p className="text-sm sm:text-base text-[var(--text-muted)] font-normal leading-relaxed">
+          <p className="text-sm text-[var(--text-muted)] font-normal leading-relaxed">
             {PERSONAL_INFO.buildingPhilosophy}
           </p>
         </div>
