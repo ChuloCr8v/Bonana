@@ -103,7 +103,7 @@ export const AboutSection: React.FC = () => {
               {group.items.map((tech) => (
                 <span
                   key={tech}
-                  className="font-mono text-xs font-medium px-3 py-1.5 bg-[var(--surface-alt)] border border-[var(--border)] text-[var(--text-main)] rounded-none hover:border-[var(--text-faint)] transition-colors"
+                  className="font-mono text-xs font-medium px-3 py-1.5 bg-[var(--surface-alt)] border border-[var(--border)] text-[var(--text-main)] rounded-none"
                 >
                   {tech}
                 </span>

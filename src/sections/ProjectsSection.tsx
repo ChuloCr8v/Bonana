@@ -58,28 +58,34 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
         as="h3"
       />
 
-      {/* Additional Systems: 1-Column on Mobile, 2-Column on Desktop */}
+      {/* Additional Systems: Divided Grid System matching the rest of the application */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.1 }}
         transition={{ duration: 0.45, ease: 'easeOut' }}
-        className="grid grid-cols-1 md:grid-cols-2 divide-y md:divide-y-0 md:divide-x divide-[var(--border)] bg-[var(--surface)]"
+        className="grid grid-cols-1 md:grid-cols-2 divide-y divide-[var(--border)] md:divide-y-0 bg-[var(--surface)]"
       >
-        {OTHER_PROJECTS.map((project) => (
-          <article
-            key={project.id}
-            tabIndex={0}
-            role="button"
-            onClick={() => setSelectedProject(project)}
-            onKeyDown={(e) => {
-              if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                setSelectedProject(project);
-              }
-            }}
-            className="group p-5 sm:p-6 flex flex-col justify-between bg-[var(--surface)] hover:bg-[var(--surface-alt)]/40 transition-colors duration-150 cursor-pointer focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[var(--accent)]"
-          >
+        {OTHER_PROJECTS.map((project, index) => {
+          const isLeftCol = index % 2 === 0;
+          const isTopRow = index < 2;
+
+          return (
+            <article
+              key={project.id}
+              tabIndex={0}
+              role="button"
+              onClick={() => setSelectedProject(project)}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setSelectedProject(project);
+                }
+              }}
+              className={`group p-5 sm:p-6 flex flex-col justify-between bg-[var(--surface)] hover:bg-[var(--surface-alt)]/40 transition-colors duration-150 cursor-pointer focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[var(--accent)] ${
+                isLeftCol ? 'md:border-r border-[var(--border)]' : ''
+              } ${!isTopRow ? 'md:border-t border-[var(--border)]' : ''}`}
+            >
             <div>
               <div className="flex items-center justify-between gap-2">
                 <h4 className="text-base font-semibold text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors">
@@ -132,9 +138,20 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
                   </span>
                 ))}
               </div>
-            </div>
-          </article>
-        ))}
+              </div>
+
+              <div className="mt-4 pt-3 border-t border-[var(--border)] flex items-center justify-between text-xs font-mono text-[var(--text-muted)]">
+                <span className="font-semibold text-[var(--text-main)]">
+                  {project.category}
+                </span>
+                <span className="group-hover:text-[var(--text-main)] group-hover:translate-x-0.5 transition-all text-[11px] font-medium inline-flex items-center gap-1">
+                  <span>Architecture &amp; Specs</span>
+                  <span aria-hidden="true">&rarr;</span>
+                </span>
+              </div>
+            </article>
+          );
+        })}
       </motion.div>
 
       {/* Ant Design Drawer for Full System Architecture & Product Details */}

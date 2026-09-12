@@ -43,11 +43,11 @@ export default function App() {
     }
   };
 
-  // Dark Theme Management with LocalStorage and prefers-color-scheme
+  // Dark Theme Management with LocalStorage default to 'dark'
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     const saved = localStorage.getItem('bona_theme');
     if (saved === 'dark' || saved === 'light') return saved;
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    return 'dark'; // Dark theme default mode
   });
 
   useEffect(() => {

@@ -8,7 +8,6 @@ import {
   FileDown,
   Download,
   Send,
-  User,
   CheckCircle2
 } from 'lucide-react';
 import { motion } from 'motion/react';
@@ -66,7 +65,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
         >
           <Input
             size="large"
-            prefix={<User className="h-4 w-4 text-[var(--text-muted)] mr-1" />}
             placeholder="Your name or company"
             className="font-sans text-xs sm:text-sm"
           />
@@ -86,7 +84,6 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
         >
           <Input
             size="large"
-            prefix={<Mail className="h-4 w-4 text-[var(--text-muted)] mr-1" />}
             placeholder="you@example.com"
             className="font-sans text-xs sm:text-sm"
           />

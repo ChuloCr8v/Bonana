@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 import { CV_DATA } from '../data/cv';
 import { FileText, Github, Sun, Moon, Menu, X, Download } from 'lucide-react';
+import { BonaLogo } from './BonaLogo';
 
 interface HeaderProps {
   onOpenResume: () => void;
@@ -52,12 +53,7 @@ export const Header: React.FC<HeaderProps> = ({
             className="flex items-center focus-visible:outline-2 focus-visible:outline-[var(--accent)] group"
             aria-label="Home - bona"
           >
-            <div className="px-2.5 py-1 sm:px-3 sm:py-1 bg-black text-white dark:bg-white dark:text-black border border-black dark:border-white rounded-none flex items-center gap-1.5 transition-colors shadow-xs">
-              <span className="font-mono text-base sm:text-lg font-bold tracking-tight lowercase">
-                bona
-              </span>
-              <span className="w-2 h-2 rounded-full bg-pink-500 shrink-0 inline-block" aria-hidden="true" title="stop" />
-            </div>
+            <BonaLogo size="md" />
           </a>
 
           {/* Desktop Navigation Links */}
