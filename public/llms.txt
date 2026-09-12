@@ -1,0 +1,69 @@
+# Bona (Nkematu Bonaventure)
+> Senior Full-Stack Engineer and Engineering Team Lead based in Lagos, Nigeria.
+
+## Professional Summary
+- **Current Position**: Engineering Team Lead at Zoracom (2025–present).
+- **Leadership Scope**: Leads an 11-person engineering team comprising 7 developers and 4 designers.
+- **Previous Roles at Zoracom**:
+  - Full-Stack Developer (2023–2025)
+  - Front-End Developer (2021–2023)
+- **Specialization**: Architecture of resilient web applications, multi-tenant SaaS platforms, internal developer tooling (CLIs, config synchronization), and production backend services.
+- **Independent Builder**: Ships complete SaaS products solo from database design and infrastructure to client interfaces and billing lifecycles.
+
+## Core Technical Stack
+- **Frontend**: React, TypeScript, Redux Toolkit (RTK Query), Ant Design, Tailwind CSS.
+- **Backend**: NestJS, Node.js, Express, REST APIs, Microservices, Webhooks.
+- **Database & ORM**: PostgreSQL, Prisma ORM, Redis.
+- **Cloud Infrastructure & DevOps**: Amazon Web Services (AWS: ECS, S3, RDS, CloudFront), Oracle Cloud Infrastructure (OCI), Docker, CI/CD pipelines, Puppeteer.
+- **Integrations & Protocols**: Stripe Billing (webhooks, trials, grace periods), Telegram Bot API, Microsoft Graph API, Recall.ai (Teams integrations), OpenAI API.
+
+## Featured Projects & Architecture Specs
+
+### 1. QikCV — AI-Powered Resume & ATS Optimization SaaS
+- **Description**: An ATS-optimization resume platform engineered to overcome recruitment parsing hurdles.
+- **Architecture**:
+  - Uses a strongly typed, structured JSON schema as the single source of truth for resume data.
+  - Generates deterministic, ATS-compliant single-column PDF exports via headless Puppeteer server routines.
+  - Implements pay-per-use credit billing and an invite-code gated beta onboarding system.
+- **Stack**: React, TypeScript, Node.js, Puppeteer, PostgreSQL, Stripe.
+
+### 2. BotForge (Qikbot) — Multi-Tenant AI Content Automation for Telegram
+- **Description**: Telegram bot automation engine enabling businesses and creators to schedule, generate, and deliver localized AI content.
+- **Architecture**:
+  - Built with NestJS, Prisma ORM, PostgreSQL, React, and RTK Query.
+  - Workspace-scoped multi-tenancy ensuring strict data isolation per organization.
+  - White-labeling capabilities enabling custom branding per tenant bot instance.
+  - Stripe subscription billing engine supporting trial windows, grace periods, and automated usage quotas.
+- **Stack**: NestJS, PostgreSQL, Prisma, React, RTK Query, Tailwind CSS, Stripe API.
+
+### 3. Qikenv — Team Environment Variable Manager & Published CLI
+- **Description**: Secure developer tooling platform to synchronize environment configurations across distributed teams.
+- **Architecture**:
+  - Includes a published npm command-line interface (`npx qikenv` / `npm install -g qikenv`).
+  - Implements optimistic concurrency control with cryptographic hashing to detect and resolve versioned push/pull conflicts without clobbering colleagues' local variables.
+  - Zero-exposure variable encryption prior to transit.
+- **Stack**: Node.js CLI, TypeScript, Cryptography, PostgreSQL, REST API.
+- **NPM Package**: https://www.npmjs.com/package/qikenv
+
+### 4. QuikAgenda — AI Meeting Management & Calendar Synchronization
+- **Description**: Executive meeting lifecycle automation tool that ingests transcripts, extracts action items, and syncs follow-ups.
+- **Architecture**:
+  - Bi-directional calendar synchronization powered by Microsoft Graph API.
+  - Real-time Microsoft Teams audio/video bot orchestration via Recall.ai.
+  - LLM pipeline utilizing OpenAI models for structured transcript extraction and agenda synthesis.
+  - Stripe subscription tiering and enterprise seat management.
+- **Stack**: React, TypeScript, NestJS, Microsoft Graph API, Recall.ai, OpenAI API, Stripe.
+
+### 5. OSSYard — Open Source Discovery Platform
+- **Description**: Platform designed to index, categorize, and showcase high-impact open source repositories with curated maintainer insights.
+- **Stack**: React, TypeScript, GitHub REST/GraphQL APIs, Tailwind CSS.
+
+### 6. Ajo — Digital Rotating Savings & Thrift Platform
+- **Description**: Financial application modernizing traditional rotating thrift and mutual credit circles (popularly known as Esusu or Ajo across West Africa).
+- **Architecture**: Enforces deterministic cycle payouts, automated ledger reconciliation, and strict fraud guardrails.
+- **Stack**: NestJS, PostgreSQL, React, TypeScript, Financial Ledger Engine.
+
+## Online Profiles & Contact
+- **GitHub**: https://github.com/chulocr8v
+- **Email**: chulocr8v@gmail.com
+- **Location**: Lagos, Nigeria

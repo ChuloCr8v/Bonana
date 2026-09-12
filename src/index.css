@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --canvas: #F8F9FA;
+    --surface: #FFFFFF;
+    --surface-alt: #F3F4F6;
+    --border: #E5E7EB;
+    --border-subtle: #F0F2F5;
+    --text-main: #111827;
+    --text-muted: #4B5563;
+    --text-faint: #6B7280;
+    --accent: #0969DA;
+    --accent-subtle: #EFF6FF;
+    --code-bg: #F3F4F6;
+  }
+
+  .dark {
+    --canvas: #09090b;
+    --surface: #18181b;
+    --surface-alt: #27272a;
+    --border: #27272a;
+    --border-subtle: #202023;
+    --text-main: #f4f4f5;
+    --text-muted: #a1a1aa;
+    --text-faint: #71717a;
+    --accent: #f4f4f5;
+    --accent-subtle: #27272a;
+    --code-bg: #18181b;
+  }
+
+  html {
+    font-family: 'Raleway', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-main);
+    background-color: var(--canvas);
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  body {
+    background-color: var(--canvas);
+    color: var(--text-main);
+    overflow-x: hidden;
+    /* Subtle rough tactile / grainy layout background */
+    background-image: 
+      radial-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.045'/%3E%3C/svg%3E");
+    background-size: 24px 24px, 200px 200px;
+    background-attachment: fixed;
+  }
+
+  .dark body,
+  html.dark body {
+    background-image: 
+      radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+      url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
+    background-size: 24px 24px, 200px 200px;
+    background-attachment: fixed;
+  }
+
+  code, kbd, samp, pre {
+    font-family: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  }
+}
+
+/* Custom crisp scrollbar for code/terminal blocks */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface-alt);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-faint);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Keyboard accessibility outline */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Seamless infinite skillset marquee */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 55s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Seamless horizontal project screenshots marquee in drawer */
+.animate-marquee-drawer {
+  display: flex;
+  width: max-content;
+  animation: marquee 26s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-drawer:hover,
+.animate-marquee-drawer.is-paused {
+  animation-play-state: paused !important;
+}
+
+/* Seamless infinite vertical marquee for desktop hero mosaic */
+@keyframes marquee-up {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-marquee-up {
+  animation: marquee-up 30s linear infinite;
+}
+
+.animate-marquee-up:hover {
+  animation-play-state: paused;
+}
+
+/* Ensure all link elements in Ant Design drawer retain author styles instead of blue default */
+:where(.ant-drawer) a,
+.ant-drawer a {
+  text-decoration: none !important;
+}
+
+.ant-drawer-footer a {
+  color: inherit !important;
+}
+
+
+
+

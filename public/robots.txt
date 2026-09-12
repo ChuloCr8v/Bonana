@@ -1,0 +1,18 @@
+# robots.txt for Bona (Nkematu Bonaventure) Portfolio
+User-agent: *
+Allow: /
+
+# LLM Crawlers & AI Agent discovery
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://chulocr8v.github.io/sitemap.xml
