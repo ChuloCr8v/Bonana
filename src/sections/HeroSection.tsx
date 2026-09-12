@@ -262,7 +262,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
             </h1>
 
             <p className="text-base sm:text-xl text-[var(--text-main)] font-medium max-w-xl">
-              Engineering Team Lead &amp; Full-Stack Developer
+              Full-Stack Developer &amp; Engineering Lead
             </p>
 
             <p className="text-sm sm:text-base text-[var(--text-muted)] font-normal max-w-xl">

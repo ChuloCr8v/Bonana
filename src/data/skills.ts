@@ -3,7 +3,7 @@ import { StackCategory } from '../types';
 export const TECHNICAL_STACK: StackCategory[] = [
   {
     category: 'Frontend',
-    items: ['React', 'Next.js', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS']
+    items: ['React', 'TypeScript', 'Redux Toolkit', 'Tailwind CSS']
   },
   {
     category: 'Backend',
@@ -11,7 +11,7 @@ export const TECHNICAL_STACK: StackCategory[] = [
   },
   {
     category: 'Data',
-    items: ['PostgreSQL', 'Prisma', 'MongoDB', 'Redis']
+    items: ['PostgreSQL', 'Prisma', 'Redis']
   },
   {
     category: 'Cloud',

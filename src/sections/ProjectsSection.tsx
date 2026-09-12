@@ -1,11 +1,15 @@
+import { ExternalLink, Github } from "lucide-react";
+import { motion } from "motion/react";
 import React, { useState } from "react";
-import { FEATURED_PROJECTS, OTHER_PROJECTS } from "../data/portfolioData";
+import { HangingSectionHeader } from "../components/HangingSectionHeader";
 import { ProjectCard } from "../components/ProjectCard";
 import { ProjectDrawer } from "../components/ProjectDrawer";
-import { HangingSectionHeader } from "../components/HangingSectionHeader";
+import {
+  CLIENT_PROJECTS,
+  FEATURED_PROJECTS,
+  OTHER_PROJECTS,
+} from "../data/portfolioData";
 import { Project } from "../types";
-import { Github, ExternalLink } from "lucide-react";
-import { motion } from "motion/react";
 
 interface ProjectsSectionProps {
   theme?: "light" | "dark";
@@ -157,6 +161,54 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
             </article>
           );
         })}
+      </motion.div>
+      <HangingSectionHeader
+        title="Professional / Client Work"
+        subtitle="Selected Zoracom delivery work across public-sector compliance, recruiting operations, and service management."
+        as="h3"
+      />
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, amount: 0.1 }}
+        transition={{ duration: 0.45, ease: "easeOut" }}
+        className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 divide-[var(--border)] border-b border-[var(--border)] bg-[var(--surface)]"
+      >
+        {CLIENT_PROJECTS.map((project, index) => (
+          <article
+            key={project.id}
+            className={`flex flex-col justify-between bg-[var(--surface)] ${
+              index < CLIENT_PROJECTS.length - 1
+                ? "md:border-r border-[var(--border)]"
+                : ""
+            }`}
+          >
+            <div className="p-5">
+              <h4 className="text-base font-semibold text-[var(--text-main)]">
+                {project.name}
+              </h4>
+
+              <p className="mt-6 text-xs font-medium text-[var(--text-muted)] leading-relaxed">
+                {project.tagline}
+              </p>
+
+              <div className="mt-3 flex flex-wrap gap-1.5">
+                {project.techStack.map((t) => (
+                  <span
+                    key={t}
+                    className="font-mono text-[10px] px-2 py-0.5 bg-[var(--surface-alt)] border border-[var(--border)] text-[var(--text-main)]"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* <div className="py-3 px-5 border-t border-[var(--border)] bg-[var(--surface-alt)]/35 text-[11px] font-mono font-medium text-[var(--text-muted)]">
+              Built at Zoracom � confidential client project.
+            </div> */}
+          </article>
+        ))}
       </motion.div>
 
       {/* Ant Design Drawer for Full System Architecture & Product Details */}

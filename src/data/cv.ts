@@ -71,7 +71,7 @@ Role: ${project.role || 'Lead Engineer'}
 Technologies: ${project.techStack.join(', ')}
 Problem & Solution: ${project.problem} ${project.solution}
 Key Outcomes:
-${(project.results || project.architectureDetails).map((r) => `• ${r}`).join('\n')}
+${(project?.results || project?.architectureDetails || []).map((r) => `• ${r}`).join('\n')}
 `
 ).join('\n')}
 

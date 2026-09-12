@@ -30,9 +30,9 @@ export const WORK_HISTORY: WorkRole[] = [
       'Engineered mission-critical enterprise platforms and cloud-backed microservices across both user interfaces and server infrastructure.',
     responsibilities: [
       'Developed production web applications using React, TypeScript, NestJS, Node.js, PostgreSQL, and Prisma.',
+      'Built and maintained backend services for MTN DCEX, an enterprise client platform, using Express and Node.js.',
       'Designed APIs, database structures, authentication flows, and automated business workflows.',
       'Integrated resilient cloud deployments using AWS (ECS, S3, RDS) and Oracle Cloud Infrastructure (OCI).',
-      'Built AI-powered workflows and document extraction pipelines using modern LLM APIs.'
     ],
     achievements: [
       'Developed production web applications using React, TypeScript, NestJS, Node.js, PostgreSQL, and Prisma.',
