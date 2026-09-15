@@ -143,9 +143,9 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
           htmlType="submit"
           loading={isSubmitting}
           size="large"
-          className="h-11 px-8  text-xs font-semibold bg-black text-white hover:bg-zinc-800 border-black inline-flex items-center justify-center gap-2 rounded-none cursor-pointer"
+          className="h-11 px-8 text-xs font-semibold !bg-black dark:!bg-white !text-white dark:!text-black hover:!bg-zinc-800 dark:hover:!bg-zinc-200 !border-black dark:!border-white inline-flex items-center justify-center gap-2 rounded-none cursor-pointer shadow-xs transition-colors"
         >
-          <Send className="h-3.5 w-3.5" />
+          <Send className="h-3.5 w-3.5 text-white dark:text-black" />
           <span>{isSubmitting ? "Sending..." : "Send message"}</span>
         </Button>
       </div>

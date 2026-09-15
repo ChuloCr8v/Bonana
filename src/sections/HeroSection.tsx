@@ -255,7 +255,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
           className="flex-1 py-12 sm:py-16 lg:py-0 px-6 sm:px-8 lg:px-10 flex flex-col justify-center"
         >
           <div className="max-w-xl space-y-2 sm:space-y-1">
-            <h1 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-main)] leading-tight">
+            <h1 className="text-4xl lg:text-5xl font-extrabold tracking-tight text-[var(--text-main)] ">
               Nkematu Bonaventure
             </h1>
 
@@ -264,12 +264,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
             </p>
 
             <p className="text-sm text-[var(--text-muted)] font-normal max-w-xl">
-              I build production web and mobile applications, backend systems, and
-              developer tools from idea to deployment.
+              I build production web and mobile applications, backend systems,
+              and developer tools from idea to deployment.
             </p>
 
             <p className="text-xs sm:text-sm  text-[var(--text-muted)] max-w-xl pt-2.5">
-              React &middot; React Native &middot; TypeScript &middot; NestJS &middot; PostgreSQL
+              React &middot; React Native &middot; TypeScript &middot; NestJS
+              &middot; PostgreSQL
             </p>
 
             {/* Action Row: 2 columns on mobile, flex row on sm+ */}
