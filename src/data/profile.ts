@@ -1,71 +1,75 @@
 import { ProfileInfo, WhatIDoItem, ColorToken } from '../types';
 
 export const PERSONAL_INFO: ProfileInfo = {
-  name: 'Bona (Nkematu Bonaventure)',
+  name: 'Nkematu Bonaventure',
   shortName: 'Bona',
-  title: 'Full-Stack Developer & Engineering Lead',
-  heroDescription: 'I build production web applications, backend systems, and developer tools from idea to deployment.',
+  title: 'Engineering Team Lead | Full-Stack Developer',
+  heroDescription: 'I build production web and mobile applications, backend systems, and developer tools from idea to deployment.',
   location: 'Lagos, Nigeria',
   status: 'Open to remote opportunities',
   timezone: 'WAT (UTC+1)',
-  currentRole: 'Engineering Team Lead at Zoracom',
+  currentRole: 'Engineering Team Lead — Zoracom',
   teamScope: '11-person cross-functional engineering team',
   email: 'chulocr8v@gmail.com',
   github: 'https://github.com/chulocr8v',
   linkedin: 'https://linkedin.com/in/chulocr8v',
   aboutIntro:
-    "I'm a full-stack engineer who also leads a team, focused on building reliable web products, backend systems, and internal tools. I enjoy working across the stack, from product architecture and database design to frontend implementation and deployment.",
+    'I build reliable web and mobile products across the full engineering lifecycle, from architecture and database design to frontend, backend, deployment, and ongoing development.',
   buildingPhilosophy:
-    'I design, build, and maintain production software end to end: scalable PostgreSQL schema migrations, optimistic concurrency controls, Stripe billing lifecycle handling, headless PDF rendering pipelines in Docker, and published npm CLI developer tools.'
+    'I currently lead an 11-person cross-functional engineering team at Zoracom, where I work across product delivery, technical decisions, code quality, mentorship, and engineering processes. Alongside professional work, I build and maintain independent SaaS products and developer tools, including QikCV, Qikbot, Qikenv, and QuikAgenda.'
 };
 
 export const WHAT_I_DO_ITEMS: WhatIDoItem[] = [
   {
     id: 'product-engineering',
     title: 'Product Engineering',
-    tagline: 'Building production-ready applications from idea to launch.',
+    tagline: 'Build and ship production applications from product requirements through implementation and deployment.',
     description:
-      'Translating user needs and product requirements into reliable, responsive web applications with polished UX, resilient client caching, and robust state machines.',
+      'Build and ship production applications from product requirements through implementation and deployment.',
     points: [
-      'Full-stack architecture from day zero through user onboarding and production scaling',
-      'High-performance React and Next.js SPAs with optimistic updates and accessible UI',
-      'Production-tested payment processing, subscription management, and webhook pipelines'
+      'Frontend architecture and reusable components',
+      'Full-stack feature development',
+      'API and data integration',
+      'Product-focused UX implementation'
     ]
   },
   {
     id: 'backend-systems',
     title: 'Backend & Systems',
-    tagline: 'Designing APIs, databases, workflows, integrations, and backend services.',
+    tagline: 'Design backend services and data systems that support real-world business workflows.',
     description:
-      'Designing clean API contracts, relational database schemas, queue-based background workers, and secure third-party service orchestrations.',
+      'Design backend services and data systems that support real-world business workflows.',
     points: [
-      'Scalable NestJS and Node.js REST and microservice architectures with validation',
-      'PostgreSQL data modeling, indexes, ACID transactions, and Prisma ORM migrations',
-      'Distributed worker queues (BullMQ, Redis), rate limiting, and idempotency guarantees'
+      'REST APIs and service architecture',
+      'PostgreSQL and Prisma data modeling',
+      'Background jobs and queues',
+      'Authentication and third-party integrations'
+    ]
+  },
+  {
+    id: 'mobile-development',
+    title: 'Mobile Development',
+    tagline: 'Build practical mobile applications for field operations and business workflows with React Native.',
+    description:
+      'Build practical mobile applications for field operations and business workflows with React Native.',
+    points: [
+      'Step-based workflows',
+      'Dynamic forms and checklists',
+      'Media and document capture',
+      'Report generation and operational tracking'
     ]
   },
   {
     id: 'engineering-leadership',
     title: 'Engineering Leadership',
-    tagline: 'Supporting teams through architecture decisions, code reviews, and technical direction.',
+    tagline: 'Lead engineers through planning, implementation, review, mentoring, and delivery.',
     description:
-      'Fostering engineering excellence by aligning cross-functional teams, reducing ambiguity, and mentoring developers in production reliability.',
+      'Lead engineers through planning, implementation, review, mentoring, and delivery.',
     points: [
-      'Guiding an 11-person cross-functional team of frontend, backend, and product engineers',
-      'Standardizing code review criteria, CI/CD automated gates, and deployment runbooks',
-      'De-risking complex technical initiatives through RFCs and architecture spikes'
-    ]
-  },
-  {
-    id: 'developer-tooling',
-    title: 'Developer Tooling',
-    tagline: 'Building tools that improve engineering workflows and productivity.',
-    description:
-      'Creating CLI utilities, configuration managers, and automation scripts that eliminate team friction and protect sensitive secrets.',
-    points: [
-      'Published npm CLI utilities with cross-platform terminal compatibility',
-      'Zero-leak team secret synchronization tools with conflict resolution protocols',
-      'Automated local dev environment bootstrapping and mock testing harnesses'
+      'Technical planning and architecture decisions',
+      'Code review and engineering standards',
+      'Mentorship and structured 1:1s',
+      'Cross-functional delivery coordination'
     ]
   }
 ];
@@ -78,3 +82,4 @@ export const COLOR_TOKENS: ColorToken[] = [
   { name: 'Text Muted', hex: '#a1a1aa', usage: 'Descriptive copy & secondary technical metadata' },
   { name: 'Text Faint', hex: '#71717a', usage: 'Auxiliary indicators & mono metadata' }
 ];
+

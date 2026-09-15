@@ -38,7 +38,7 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({
                 {CV_DATA.header.name} — Resume
               </h2>
               <p className="text-[11px]  text-[var(--text-muted)] hidden sm:block">
-                Senior Full-Stack Engineer &amp; Engineering Team Lead
+                Engineering Team Lead | Full-Stack Developer
               </p>
             </div>
           </div>

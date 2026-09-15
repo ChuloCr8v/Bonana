@@ -72,8 +72,8 @@ export const AboutIntroSection: React.FC = () => {
     >
       <HangingSectionHeader
         id="about"
-        title="About & Engineering Focus"
-        subtitle="Full-stack product engineer and technical lead delivering systems from concept to production."
+        title="About"
+        subtitle="Full-stack engineer and engineering lead delivering products from concept to production."
         as="h2"
       />
 
@@ -86,11 +86,15 @@ export const AboutIntroSection: React.FC = () => {
       >
         <div className="p-6 sm:p-8 lg:p-10 space-y-3.5 max-w-4xl">
           <p className="text-sm text-[var(--text-main)] font-normal leading-relaxed">
-            {PERSONAL_INFO.aboutIntro}
+            I build reliable web and mobile products across the full engineering lifecycle, from architecture and database design to frontend, backend, deployment, and ongoing development.
           </p>
 
           <p className="text-sm text-[var(--text-muted)] font-normal leading-relaxed">
-            {PERSONAL_INFO.buildingPhilosophy}
+            I currently lead an 11-person cross-functional engineering team at Zoracom, where I work across product delivery, technical decisions, code quality, mentorship, and engineering processes.
+          </p>
+
+          <p className="text-sm text-[var(--text-muted)] font-normal leading-relaxed">
+            Alongside professional work, I build and maintain independent SaaS products and developer tools, including QikCV, Qikbot, Qikenv, and QuikAgenda.
           </p>
         </div>
 

@@ -120,14 +120,14 @@ export default function App() {
           {/* 1. Hero Section */}
           <HeroSection onOpenResume={() => setIsResumeOpen(true)} />
 
-          {/* 2. Short About Section (Professional Intro & Remote Availability) */}
+          {/* 2. Projects Section (Featured Priority with QikCV primary & Drawer) */}
+          <ProjectsSection theme={theme} onOpenImage={handleOpenImage} />
+
+          {/* 3. Short About Section (Professional Intro & Remote Availability) */}
           <AboutIntroSection />
 
-          {/* 3. What I Do Section (Product Engineering, Backend & Systems, Leadership, Tooling) */}
+          {/* 4. What I Do Section (Product Engineering, Backend & Systems, Leadership, Tooling) */}
           <WhatIDoSection />
-
-          {/* 4. Projects Section (Featured Priority with QikCV primary & Drawer) */}
-          <ProjectsSection theme={theme} onOpenImage={handleOpenImage} />
 
           {/* 5. Professional Experience & Technical Stack Matrix */}
           <AboutSection />

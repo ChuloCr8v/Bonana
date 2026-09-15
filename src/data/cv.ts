@@ -8,7 +8,7 @@ export const CV_DATA = {
   downloadUrl: '/Nkematu_Bonaventure_Full_Stack_Engineer_CV.pdf',
   header: {
     name: 'Nkematu Bonaventure',
-    title: 'Engineering Team Lead & Full-Stack Developer',
+    title: 'Engineering Team Lead | Full-Stack Developer',
     location: 'Lagos, Nigeria (Open to Remote)',
     email: PERSONAL_INFO.email,
     github: 'github.com/chulocr8v',
@@ -16,7 +16,7 @@ export const CV_DATA = {
     portfolio: 'bona.dev'
   },
   summary:
-    'Engineering Team Lead and Full-Stack Developer with 5+ years of experience building and shipping production web applications, backend systems, and SaaS products. Experienced in React, Next.js, TypeScript, NestJS, PostgreSQL, cloud infrastructure, and AI-powered applications. Proven experience leading engineering teams, designing scalable systems, and delivering products from concept through deployment.',
+    'Full-stack engineer and engineering lead with 5+ years of experience building and shipping production web applications, backend systems, mobile applications, SaaS products, and developer tools. Experienced in React, React Native, Next.js, TypeScript, NestJS, PostgreSQL, Prisma, cloud infrastructure, and engineering team leadership.',
   technicalSkills: TECHNICAL_STACK,
   experience: WORK_HISTORY,
   selectedProjects: ALL_PROJECTS.filter((p) => p.tier === 'primary' || p.tier === 'secondary' || p.tier === 'enterprise').slice(0, 5),

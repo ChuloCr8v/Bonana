@@ -24,7 +24,7 @@ export const Footer: React.FC<FooterProps> = ({ theme }) => {
             © {new Date().getFullYear()} {PERSONAL_INFO.name}
           </p>
           <p className="text-[var(--text-muted)] mt-0.5">
-            Engineering Team Lead &amp; Full-Stack Architect
+            Engineering Team Lead | Full-Stack Developer
           </p>
         </div>
       </div>

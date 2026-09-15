@@ -260,16 +260,16 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
             </h1>
 
             <p className="text-base sm:text-xl text-[var(--text-main)] font-medium max-w-xl">
-              Full-Stack Developer &amp; Engineering Lead
+              Engineering Team Lead | Full-Stack Developer
             </p>
 
             <p className="text-sm text-[var(--text-muted)] font-normal max-w-xl">
-              I build production web applications, backend systems, and
+              I build production web and mobile applications, backend systems, and
               developer tools from idea to deployment.
             </p>
 
             <p className="text-xs sm:text-sm  text-[var(--text-muted)] max-w-xl pt-2.5">
-              TypeScript &middot; React &middot; NestJS &middot; Next.js
+              React &middot; React Native &middot; TypeScript &middot; NestJS &middot; PostgreSQL
             </p>
 
             {/* Action Row: 2 columns on mobile, flex row on sm+ */}

@@ -12,8 +12,7 @@ export const AboutSection: React.FC = () => {
       {/* Hanging Plaque: Professional Experience */}
       <HangingSectionHeader
         id="experience"
-        title="Professional Experience"
-        subtitle="My path from frontend engineer to full-stack architect and engineering team lead."
+        title="Experience"
         as="h2"
       />
 
@@ -55,12 +54,6 @@ export const AboutSection: React.FC = () => {
 
             {/* Right Box: Structured Work List */}
             <div className="w-full md:w-7/12 lg:w-8/12 p-5 sm:p-6 bg-[var(--surface)] flex flex-col justify-center">
-              {/* <div className="mb-2.5">
-                <span className="text-xs uppercase text-[var(--text-main)]/60 font-se">
-                  Key Responsibilities &amp; Impact
-                </span>
-              </div> */}
-
               <ul className="space-y-2.5 text-xs sm:text-sm text-[var(--text-muted)]">
                 {role.responsibilities.map((resp, i) => (
                   <li key={i} className="flex items-start gap-2.5">
@@ -78,10 +71,11 @@ export const AboutSection: React.FC = () => {
         ))}
       </motion.div>
 
-      {/* Hanging Plaque: Technical Stack & Infrastructure */}
+      {/* Hanging Plaque: Technical Stack */}
       <HangingSectionHeader
         id="stack"
-        title="Technical Stack & Infrastructure"
+        title="Technical Stack"
+        subtitle="Technologies I use across product development, backend systems, mobile applications, infrastructure, and integrations."
         as="h3"
       />
 

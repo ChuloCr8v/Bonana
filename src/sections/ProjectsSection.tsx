@@ -33,7 +33,11 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
       className="w-full border-b border-[var(--border)] bg-[var(--surface)]"
     >
       {/* Hanging Plaque Section Header */}
-      <HangingSectionHeader title="Featured Systems & SaaS Products" as="h2" />
+      <HangingSectionHeader
+        title="Featured Systems & SaaS Products"
+        subtitle="Independent products and developer tools I have designed and built outside client work."
+        as="h2"
+      />
 
       {/* Featured Projects: 1-Column on Mobile, 2-Column on Desktop with solid border-b */}
       <motion.div
@@ -60,10 +64,10 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
         ))}
       </motion.div>
 
-      {/* Hanging Plaque for Additional Systems with improved title */}
+      {/* Hanging Plaque for Additional Systems */}
       <HangingSectionHeader
         title="More Products & Open Source"
-        subtitle="Curated open-source software directories and community group finance tools."
+        subtitle="Additional products, experiments, and developer projects."
         as="h3"
       />
 
@@ -73,7 +77,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.1 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
-        className="grid grid-cols-1 md:grid-cols-2 divide-y divide-[var(--border)] md:divide-y-0 bg-[var(--surface)]"
+        className="grid grid-cols-1 md:grid-cols-2 divide-y divide-[var(--border)] md:divide-y-0 border-b border-[var(--border)] bg-[var(--surface)]"
       >
         {OTHER_PROJECTS.map((project, index) => {
           const isLeftCol = index % 2 === 0;
@@ -164,7 +168,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
       </motion.div>
       <HangingSectionHeader
         title="Professional / Client Work"
-        subtitle="Selected projects across public-sector compliance, recruiting operations, and service management."
+        subtitle="Production systems built as part of my engineering work at Zoracom."
         as="h3"
       />
       <motion.div
@@ -172,43 +176,60 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false, amount: 0.1 }}
         transition={{ duration: 0.45, ease: "easeOut" }}
-        className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 divide-[var(--border)] border-b border-[var(--border)] bg-[var(--surface)]"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 divide-y md:divide-y-0 divide-[var(--border)] border-b border-[var(--border)] bg-[var(--surface)]"
       >
-        {CLIENT_PROJECTS.map((project, index) => (
-          <article
-            key={project.id}
-            className={`flex flex-col justify-between bg-[var(--surface)] ${
-              index < CLIENT_PROJECTS.length - 1
-                ? "md:border-r border-[var(--border)]"
-                : ""
-            }`}
-          >
-            <div className="p-5">
-              <h4 className="text-base font-semibold text-[var(--text-main)]">
-                {project.name}
-              </h4>
+        {CLIENT_PROJECTS.map((project, index) => {
+          const isLeftCol = index % 2 === 0;
+          const isTopRow = index < 2;
 
-              <p className="mt-6 text-xs font-medium text-[var(--text-muted)] leading-relaxed">
-                {project.tagline}
-              </p>
+          return (
+            <article
+              key={project.id}
+              tabIndex={0}
+              role="button"
+              onClick={() => setSelectedProject(project)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  setSelectedProject(project);
+                }
+              }}
+              className={`group flex flex-col justify-between bg-[var(--surface)] hover:bg-[var(--surface-alt)]/40 transition-colors duration-150 cursor-pointer focus:outline-hidden focus-visible:ring-2 focus-visible:ring-[var(--accent)] ${
+                isLeftCol ? "md:border-r border-[var(--border)]" : ""
+              } ${!isTopRow ? "md:border-t border-[var(--border)]" : ""}`}
+            >
+              <div className="p-5">
+                <div className="flex items-center justify-between gap-2">
+                  <h4 className="text-base font-semibold text-[var(--text-main)] group-hover:text-[var(--accent)] transition-colors">
+                    {project.name}
+                  </h4>
+                </div>
 
-              <div className="mt-3 flex flex-wrap gap-1.5">
-                {project.techStack.map((t) => (
-                  <span
-                    key={t}
-                    className=" text-[10px] px-2 py-0.5 bg-[var(--surface-alt)] border border-[var(--border)] text-[var(--text-main)]"
-                  >
-                    {t}
-                  </span>
-                ))}
+                <p className="mt-4 text-xs font-medium text-[var(--text-muted)] leading-relaxed">
+                  {project.tagline}
+                </p>
+
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {project.techStack.map((t) => (
+                    <span
+                      key={t}
+                      className=" text-[10px] px-2 py-0.5 bg-[var(--surface-alt)] border border-[var(--border)] text-[var(--text-main)]"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* <div className="py-3 px-5 border-t border-[var(--border)] bg-[var(--surface-alt)]/35 text-[11px]  font-medium text-[var(--text-muted)]">
-              Built at Zoracom � confidential client project.
-            </div> */}
-          </article>
-        ))}
+              <div className="py-3 px-5 border-t border-[var(--border)] bg-[var(--surface-alt)]/35 text-[11px] font-medium text-[var(--text-muted)] flex items-center justify-between">
+                <span>Enterprise Client Work</span>
+                <span className="group-hover:text-[var(--text-main)] group-hover:translate-x-0.5 transition-all inline-flex items-center gap-1">
+                  <span>Details &rarr;</span>
+                </span>
+              </div>
+            </article>
+          );
+        })}
       </motion.div>
 
       {/* Ant Design Drawer for Full System Architecture & Product Details */}

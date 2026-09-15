@@ -1,8 +1,8 @@
-import React from "react";
+import { Layers, Server, Users, Wrench } from "lucide-react";
 import { motion } from "motion/react";
+import React from "react";
 import { HangingSectionHeader } from "../components/HangingSectionHeader";
 import { WHAT_I_DO_ITEMS } from "../data/profile";
-import { Layers, Server, Users, Wrench } from "lucide-react";
 
 const ICONS = [Layers, Server, Users, Wrench];
 
@@ -12,7 +12,12 @@ export const WhatIDoSection: React.FC = () => {
       id="what-i-do"
       className="w-full border-b border-[var(--border)] bg-[var(--surface)]"
     >
-      <HangingSectionHeader id="disciplines" title="What I Do" as="h2" />
+      <HangingSectionHeader
+        id="disciplines"
+        title="What I Do"
+        subtitle="I work across product engineering, backend systems, mobile applications, and engineering leadership."
+        as="h2"
+      />
 
       <motion.div
         initial={{ opacity: 0, y: 16 }}
@@ -35,7 +40,7 @@ export const WhatIDoSection: React.FC = () => {
                 ${!isTopRow ? "md:border-t border-[var(--border)]" : ""}
               `}
             >
-              <div className="p-6 pb-0">
+              <div className="p-6">
                 {/* Card Icon at the top */}
                 <div className="mb-4 inline-flex p-2.5 border border-[var(--border)] bg-[var(--surface-alt)] text-[var(--text-main)] items-center justify-center">
                   <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -51,8 +56,8 @@ export const WhatIDoSection: React.FC = () => {
               </div>
 
               {/* Inner bordered list box with unified clean styling */}
-              <div className="mt-5 p-3.5 sm:p-4 border-t border-[var(--border)] bg-[var(--surface-alt)]/35">
-                <ul className="space-y-2 text-xs text-[var(--text-muted)]">
+              <div className="mt-2 p-3.5 sm:p-4 border-t border-[var(--border)] bg-[var(--surface-alt)]/35">
+                <ul className="space-y-1.5 text-xs text-[var(--text-muted)]">
                   {item.points.map((point, pIdx) => (
                     <li key={pIdx} className="flex items-start gap-2">
                       <span className=" text-[var(--text-muted)] text-[11px] shrink-0 mt-0.5 select-none">

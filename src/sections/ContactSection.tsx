@@ -1,25 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { PERSONAL_INFO } from "../data/portfolioData";
-import { CV_DATA } from "../data/cv";
 import {
-  Mail,
-  Github,
-  Linkedin,
-  FileDown,
-  Download,
-  Send,
-  CheckCircle2,
-} from "lucide-react";
-import { motion } from "motion/react";
-import { HangingSectionHeader } from "../components/HangingSectionHeader";
-import {
-  Form,
-  Input,
+  App as AntdApp,
   Button,
   ConfigProvider,
+  Form,
+  Input,
   theme as antdTheme,
-  App as AntdApp,
 } from "antd";
+import {
+  CheckCircle2,
+  FileDown,
+  Github,
+  Linkedin,
+  Mail,
+  Send,
+} from "lucide-react";
+import { motion } from "motion/react";
+import React, { useEffect, useState } from "react";
+import { HangingSectionHeader } from "../components/HangingSectionHeader";
+import { PERSONAL_INFO } from "../data/portfolioData";
 
 interface ContactSectionProps {
   onOpenResume: () => void;
@@ -187,7 +185,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       {/* Centralized Section Title Hanging on 2 Strings */}
       <HangingSectionHeader
         title="Get in touch"
-        subtitle="Have a project in mind, an engineering role to discuss, or just want to connect? Drop a message below."
+        subtitle="Have a project, engineering role, or collaboration in mind? I'd be happy to connect."
         as="h2"
       />
 
@@ -226,7 +224,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           </button>
 
           {/* Button 3b: Direct ATS CV Download */}
-          <a
+          {/* <a
             href={CV_DATA.downloadUrl}
             download={CV_DATA.fileName}
             className="bg-white text-black hover:bg-zinc-100 border border-zinc-300 px-4 py-2 text-xs  font-semibold inline-flex items-center gap-2 shadow-xs transition-colors"
@@ -234,7 +232,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           >
             <Download className="h-4 w-4 text-[var(--accent)]" />
             <span>Download CV (PDF)</span>
-          </a>
+          </a> */}
 
           {/* Button 4: Direct Email Action (Redirects to mailto:) */}
           <a
