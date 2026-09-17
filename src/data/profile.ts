@@ -16,7 +16,7 @@ export const PERSONAL_INFO: ProfileInfo = {
   aboutIntro:
     'I build reliable web and mobile products across the full engineering lifecycle, from architecture and database design to frontend, backend, deployment, and ongoing development.',
   buildingPhilosophy:
-    'I currently lead an 11-person cross-functional engineering team at Zoracom, where I work across product delivery, technical decisions, code quality, mentorship, and engineering processes. Alongside professional work, I build and maintain independent SaaS products and developer tools, including QikCV, Qikbot, Qikenv, and QuikAgenda.'
+    'I currently lead an 11-person cross-functional engineering team at Zoracom, where I work across product delivery, technical decisions, code quality, mentorship, and engineering processes. Alongside professional work, I build and maintain independent SaaS products and developer tools, including QikCV, Qikbot, Qikenv, and QikAgenda.'
 };
 
 export const WHAT_I_DO_ITEMS: WhatIDoItem[] = [

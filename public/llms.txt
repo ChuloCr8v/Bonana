@@ -45,7 +45,7 @@
 - **Stack**: Node.js CLI, TypeScript, Cryptography, PostgreSQL, REST API.
 - **NPM Package**: https://www.npmjs.com/package/qikenv
 
-### 4. QuikAgenda — AI Meeting Management & Calendar Synchronization
+### 4. QikAgenda — AI Meeting Management & Calendar Synchronization
 - **Description**: Executive meeting lifecycle automation tool that ingests transcripts, extracts action items, and syncs follow-ups.
 - **Architecture**:
   - Bi-directional calendar synchronization powered by Microsoft Graph API.

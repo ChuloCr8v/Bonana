@@ -478,9 +478,9 @@ export const ALL_PROJECTS: Project[] = [
   },
 
   {
-    id: 'quikagenda',
+    id: 'qikagenda',
 
-    name: 'QuikAgenda',
+    name: 'QikAgenda',
 
     tier: 'secondary',
 
@@ -494,7 +494,7 @@ export const ALL_PROJECTS: Project[] = [
     imageUrl: quikagendaImg,
 
     imageAlt:
-      'QuikAgenda meeting summary and calendar automation dashboard',
+      'QikAgenda meeting summary and calendar automation dashboard',
 
     // galleryImages: [
     //   {
@@ -514,7 +514,7 @@ export const ALL_PROJECTS: Project[] = [
     architectureTag: 'Featured System · Productivity',
 
     overview:
-      'QuikAgenda connects meeting data with follow-up actions so important decisions and tasks are easier to capture after meetings.',
+      'QikAgenda connects meeting data with follow-up actions so important decisions and tasks are easier to capture after meetings.',
 
     problem:
       'Meeting outcomes are often lost between transcripts, notes, calendars, and follow-up tasks.',
@@ -601,9 +601,9 @@ export const ALL_PROJECTS: Project[] = [
     links: {
       github: 'https://github.com/chulocr8v',
 
-      live: 'https://quikagenda.com',
+      live: 'https://qikagenda.com',
 
-      caseStudy: '/projects/quikagenda'
+      caseStudy: '/projects/qikagenda'
     }
   },
 

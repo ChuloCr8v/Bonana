@@ -86,15 +86,21 @@ export const AboutIntroSection: React.FC = () => {
       >
         <div className="p-6 sm:p-8 lg:p-10 space-y-3.5 max-w-4xl">
           <p className="text-sm text-[var(--text-main)] font-normal leading-relaxed">
-            I build reliable web and mobile products across the full engineering lifecycle, from architecture and database design to frontend, backend, deployment, and ongoing development.
+            I build reliable web and mobile products across the full engineering
+            lifecycle, from architecture and database design to frontend,
+            backend, deployment, and ongoing development.
           </p>
 
           <p className="text-sm text-[var(--text-muted)] font-normal leading-relaxed">
-            I currently lead an 11-person cross-functional engineering team at Zoracom, where I work across product delivery, technical decisions, code quality, mentorship, and engineering processes.
+            I currently lead an 11-person cross-functional engineering team at
+            Zoracom, where I work across product delivery, technical decisions,
+            code quality, mentorship, and engineering processes.
           </p>
 
           <p className="text-sm text-[var(--text-muted)] font-normal leading-relaxed">
-            Alongside professional work, I build and maintain independent SaaS products and developer tools, including QikCV, Qikbot, Qikenv, and QuikAgenda.
+            Alongside professional work, I build and maintain independent SaaS
+            products and developer tools, including QikCV, Qikbot, Qikenv, and
+            QikAgenda.
           </p>
         </div>
 
