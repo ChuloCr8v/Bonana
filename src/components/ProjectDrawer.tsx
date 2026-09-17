@@ -184,7 +184,7 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
                 title={`${project.name} Live Link`}
               >
                 <span className="text-white dark:text-black !text-white dark:!text-black font-sans">
-                  Live System
+                  Demo
                 </span>
                 <ExternalLink className="h-3.5 w-3.5 text-white dark:text-black !text-white dark:!text-black" />
               </a>
@@ -261,7 +261,7 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
                 <img
                   src={project.imageUrl}
                   alt={project.imageAlt || `${project.name} cover preview`}
-                  className="w-full h-auto aspect-video object-cover transition-transform duration-300 group-hover:scale-[1.01]"
+                  className="w-full h-auto aspect-video object-cover object-top transition-transform duration-300 group-hover:scale-[1.01]"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2 text-white font-sans text-xs font-bold">
@@ -308,7 +308,7 @@ export const ProjectDrawer: React.FC<ProjectDrawerProps> = ({
                         <img
                           src={img.url}
                           alt={img.title || `${project.name} screenshot`}
-                          className="w-full h-full object-cover transition-transform duration-300 group-hover/screenshot:scale-105"
+                          className="w-full h-full object-cover object-top transition-transform duration-300 group-hover/screenshot:scale-105"
                           referrerPolicy="no-referrer"
                         />
                         <div className="absolute inset-0 bg-black/35 opacity-0 group-hover/screenshot:opacity-100 transition-opacity flex items-center justify-center gap-1.5 text-white font-sans text-xs font-bold">

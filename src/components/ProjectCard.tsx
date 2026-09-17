@@ -1,6 +1,7 @@
 import React from "react";
 import { Project } from "../types";
 import { ExternalLink, Github } from "lucide-react";
+import { twMerge } from "tailwind-merge";
 
 interface ProjectCardProps {
   project: Project;
@@ -40,12 +41,16 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <div>
           {/* 1. Product Image Display */}
           {project.imageUrl && (
-            <div className="relative border-b border-[var(--border)] overflow-hidden bg-black/5">
+            <div
+              className={twMerge(
+                "relative border-b border-[var(--border)] overflow-hidden dark:bg-orange-500 bg-orange-400",
+              )}
+            >
               <div className="relative aspect-video w-full overflow-hidden">
                 <img
                   src={project.imageUrl}
                   alt={project.imageAlt || `${project.name} interface`}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                  className="border-12 border-orange-800 w-[90%] translate-y-8 place-self-center h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />
