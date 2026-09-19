@@ -13,6 +13,7 @@ import {
   Linkedin,
   Mail,
   Send,
+  Sparkles,
 } from "lucide-react";
 import { motion } from "motion/react";
 import React, { useEffect, useState } from "react";
@@ -30,8 +31,18 @@ interface FormValues {
   message: string;
 }
 
+interface SubmissionResponse {
+  success: boolean;
+  messageId?: string;
+  provider?: string;
+  adminDelivered?: boolean;
+  userDelivered?: boolean;
+  notes?: string;
+  error?: string;
+}
+
 interface ContactFormProps {
-  onSuccess: (values: FormValues) => void;
+  onSuccess: (values: FormValues, response: SubmissionResponse) => void;
 }
 
 const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
@@ -41,12 +52,30 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
 
   const handleFinish = async (values: FormValues) => {
     setIsSubmitting(true);
-    // Simulate real request dispatch
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    setIsSubmitting(false);
-    onSuccess(values);
-    message.success("Message sent! I will get back to you soon.");
-    form.resetFields();
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(values),
+      });
+
+      const data: SubmissionResponse = await res.json();
+
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "Failed to deliver message. Please try again.");
+      }
+
+      onSuccess(values, data);
+      message.success("Message dispatched successfully! A confirmation receipt has been generated.");
+      form.resetFields();
+    } catch (err: any) {
+      console.error("[ContactForm] Submission failed:", err);
+      message.error(err?.message || "Could not deliver your message right now. Please try again or reach out directly.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -129,7 +158,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
       >
         <Input.TextArea
           rows={4}
-          placeholder="Tell me about your project, idea, or questions..."
+          placeholder="Tell me about your project, idea, role, or questions..."
           maxLength={1500}
           showCount
           className="font-sans text-xs sm:text-sm"
@@ -137,7 +166,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
       </Form.Item>
 
       {/* Submission Button */}
-      <div className="pt-2 flex items-center">
+      <div className="pt-2 flex items-center justify-between flex-wrap gap-3">
         <Button
           type="primary"
           htmlType="submit"
@@ -146,8 +175,11 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
           className="h-11 px-8 text-xs font-semibold !bg-black dark:!bg-white !text-white dark:!text-black hover:!bg-zinc-800 dark:hover:!bg-zinc-200 !border-black dark:!border-white inline-flex items-center justify-center gap-2 rounded-none cursor-pointer shadow-xs transition-colors"
         >
           <Send className="h-3.5 w-3.5 text-white dark:text-black" />
-          <span>{isSubmitting ? "Sending..." : "Send message"}</span>
+          <span>{isSubmitting ? "Dispatching..." : "Send message"}</span>
         </Button>
+        <span className="text-[11px] text-[var(--text-muted)] font-mono">
+          Auto-confirmation receipt will be sent to your email
+        </span>
       </div>
     </Form>
   );
@@ -156,7 +188,10 @@ const ContactForm: React.FC<ContactFormProps> = ({ onSuccess }) => {
 export const ContactSection: React.FC<ContactSectionProps> = ({
   onOpenResume,
 }) => {
-  const [submittedData, setSubmittedData] = useState<FormValues | null>(null);
+  const [submittedData, setSubmittedData] = useState<{
+    values: FormValues;
+    response: SubmissionResponse;
+  } | null>(null);
 
   // Synchronize Ant Design theme algorithm with application dark/light state
   const [isDark, setIsDark] = useState<boolean>(() => {
@@ -197,7 +232,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             href={PERSONAL_INFO.github}
             target="_blank"
             rel="noreferrer"
-            className="bg-black text-white hover:bg-zinc-800 border border-black px-4 py-2 text-xs  font-semibold inline-flex items-center gap-2 shadow-xs transition-colors"
+            className="bg-black text-white hover:bg-zinc-800 border border-black px-4 py-2 text-xs font-semibold inline-flex items-center gap-2 shadow-xs transition-colors"
           >
             <Github className="h-4 w-4" />
             <span>GitHub</span>
@@ -208,7 +243,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             href={PERSONAL_INFO.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="bg-white text-black hover:bg-zinc-100 border border-zinc-300 px-4 py-2 text-xs  font-semibold inline-flex items-center gap-2 shadow-xs transition-colors"
+            className="bg-white text-black hover:bg-zinc-100 border border-zinc-300 px-4 py-2 text-xs font-semibold inline-flex items-center gap-2 shadow-xs transition-colors"
           >
             <Linkedin className="h-4 w-4 text-black" />
             <span>LinkedIn</span>
@@ -217,27 +252,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           {/* Button 3: Resume View Modal */}
           <button
             onClick={onOpenResume}
-            className="bg-black text-white hover:bg-zinc-800 border border-black px-4 py-2 text-xs  font-semibold inline-flex items-center gap-2 shadow-xs transition-colors cursor-pointer"
+            className="bg-black text-white hover:bg-zinc-800 border border-black px-4 py-2 text-xs font-semibold inline-flex items-center gap-2 shadow-xs transition-colors cursor-pointer"
           >
             <FileDown className="h-4 w-4" />
             <span>Resume</span>
           </button>
 
-          {/* Button 3b: Direct ATS CV Download */}
-          {/* <a
-            href={CV_DATA.downloadUrl}
-            download={CV_DATA.fileName}
-            className="bg-white text-black hover:bg-zinc-100 border border-zinc-300 px-4 py-2 text-xs  font-semibold inline-flex items-center gap-2 shadow-xs transition-colors"
-            title="Download ATS-compliant PDF"
-          >
-            <Download className="h-4 w-4 text-[var(--accent)]" />
-            <span>Download CV (PDF)</span>
-          </a> */}
-
           {/* Button 4: Direct Email Action (Redirects to mailto:) */}
           <a
             href={`mailto:${PERSONAL_INFO.email}`}
-            className="bg-white text-black hover:bg-zinc-100 border border-zinc-300 px-4 py-2 text-xs  font-semibold inline-flex items-center gap-2 shadow-xs transition-colors cursor-pointer"
+            className="bg-white text-black hover:bg-zinc-100 border border-zinc-300 px-4 py-2 text-xs font-semibold inline-flex items-center gap-2 shadow-xs transition-colors cursor-pointer"
             title="Open email client"
           >
             <Mail className="h-4 w-4 text-black" />
@@ -271,26 +295,86 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
         >
           <AntdApp>
             {submittedData ? (
-              <div className="border border-emerald-500/40 bg-emerald-500/10 p-6 sm:p-8 text-center space-y-4">
-                <div className="w-12 h-12 mx-auto rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-600">
-                  <CheckCircle2 className="h-6 w-6" />
+              <div className="border border-emerald-500/40 bg-emerald-500/5 p-6 sm:p-8 space-y-6">
+                <div className="text-center space-y-2">
+                  <div className="w-12 h-12 mx-auto rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-600">
+                    <CheckCircle2 className="h-6 w-6" />
+                  </div>
+                  <h3 className="text-base sm:text-lg font-bold text-[var(--text-main)]">
+                    Message Dispatched Successfully
+                  </h3>
+                  <p className="text-xs sm:text-sm text-[var(--text-muted)] max-w-md mx-auto leading-relaxed">
+                    Thank you,{" "}
+                    <span className="font-semibold text-[var(--text-main)]">
+                      {submittedData.values.name}
+                    </span>
+                    . Both an owner notification and a confirmation receipt have been generated.
+                  </p>
                 </div>
-                <h3 className="text-base sm:text-lg font-bold text-[var(--text-main)]">
-                  Message sent!
-                </h3>
-                <p className="text-xs sm:text-sm text-[var(--text-muted)] max-w-md mx-auto leading-relaxed">
-                  Thanks for reaching out,{" "}
-                  <span className="font-semibold text-[var(--text-main)]">
-                    {submittedData.name}
-                  </span>
-                  . I have received your message and will get back to you
-                  shortly at{" "}
-                  <span className=" text-xs">{submittedData.email}</span>.
-                </p>
-                <div className="pt-2">
+
+                {/* Structured Dual Delivery Status Card */}
+                <div className="bg-[var(--surface-alt)]/50 border border-[var(--border)] p-4 sm:p-5 space-y-3.5 text-xs">
+                  <div className="flex items-center justify-between border-b border-[var(--border)] pb-2.5">
+                    <span className="font-mono text-[11px] text-[var(--text-muted)] uppercase tracking-wider">
+                      Gateway Transmission Status
+                    </span>
+                    <span className="inline-flex items-center gap-1.5 px-2 py-0.5 text-[11px] font-mono bg-emerald-500/20 text-emerald-600 dark:text-emerald-400">
+                      <Sparkles className="h-3 w-3" />
+                      {submittedData.response.provider === "resend"
+                        ? "Resend API Active"
+                        : submittedData.response.provider === "smtp"
+                        ? "SMTP Relay Active"
+                        : "Archived & Simulation Active"}
+                    </span>
+                  </div>
+
+                  <div className="space-y-2">
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-2 h-2 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
+                      <div>
+                        <strong className="text-[var(--text-main)] font-medium">
+                          Notification for Nkematu Bonaventure
+                        </strong>
+                        <p className="text-[11px] text-[var(--text-muted)] font-mono">
+                          Destination: {PERSONAL_INFO.email}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-2.5">
+                      <div className="w-2 h-2 rounded-full bg-emerald-500 mt-1.5 shrink-0" />
+                      <div>
+                        <strong className="text-[var(--text-main)] font-medium">
+                          Confirmation auto-reply sent to you
+                        </strong>
+                        <p className="text-[11px] text-[var(--text-muted)] font-mono">
+                          Destination: {submittedData.values.email}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Message reference preview */}
+                  <div className="pt-2 border-t border-[var(--border)]">
+                    <div className="text-[11px] text-[var(--text-muted)] mb-1 font-mono">
+                      Subject: &ldquo;{submittedData.values.subject}&rdquo;
+                    </div>
+                    <div className="p-3 bg-[var(--surface)] border border-[var(--border)] text-[11px] text-[var(--text-muted)] leading-relaxed italic line-clamp-3">
+                      &ldquo;{submittedData.values.message}&rdquo;
+                    </div>
+                  </div>
+
+                  {submittedData.response.notes && (
+                    <div className="text-[11px] text-amber-600 dark:text-amber-400 bg-amber-500/10 p-2 border border-amber-500/20 font-mono">
+                      ℹ️ {submittedData.response.notes}
+                    </div>
+                  )}
+                </div>
+
+                <div className="text-center pt-1">
                   <button
                     onClick={() => setSubmittedData(null)}
-                    className="px-5 py-2 text-xs  font-medium border border-[var(--border)] bg-[var(--surface)] text-[var(--text-main)] hover:border-[var(--text-main)] transition-colors cursor-pointer"
+                    className="px-6 py-2.5 text-xs font-semibold border border-[var(--border)] bg-[var(--surface)] text-[var(--text-main)] hover:border-[var(--text-main)] transition-colors cursor-pointer"
                   >
                     Send another message
                   </button>
@@ -303,12 +387,15 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     Send a message
                   </h3>
                   <p className="text-xs text-[var(--text-muted)] mt-1">
-                    Fill out the form below and I&rsquo;ll get back to you as
-                    soon as I can.
+                    Fill out the form below. A notification will be sent to Bonaventure, and an automated confirmation receipt will be delivered to you.
                   </p>
                 </div>
 
-                <ContactForm onSuccess={(values) => setSubmittedData(values)} />
+                <ContactForm
+                  onSuccess={(values, response) =>
+                    setSubmittedData({ values, response })
+                  }
+                />
               </div>
             )}
           </AntdApp>

@@ -1,35 +1,34 @@
 import { Project } from '../types';
 
-import qikcvImg from '/qikcv/cover.png';
-import dashboardImg from '/qikcv/dashboard-cover.png';
-import qikcvImgOne from '/qikcv/img1.png';
-import qikcvImgTwo from '/qikcv/img2.png';
-import qikcvImgThree from '/qikcv/img3.png';
+import qikcvImg from '/qikcv/cover.webp';
+import dashboardImg from '/qikcv/dashboard-cover.webp';
+import qikcvImgOne from '/qikcv/img1.webp';
+import qikcvImgTwo from '/qikcv/img2.webp';
+import qikcvImgThree from '/qikcv/img3.webp';
 
-import qikbotimg from '/qikbot/cover.png';
-import qikbotimg1 from '/qikbot/img1.png';
-import qikbotimg2 from '/qikbot/img2.png';
-import qikbotimg3 from '/qikbot/img3.png';
-import qikbotimg4 from '/qikbot/img4.png';
+import qikbotimg from '/qikbot/cover.webp';
+import qikbotimg1 from '/qikbot/img1.webp';
+import qikbotimg2 from '/qikbot/img2.webp';
+import qikbotimg3 from '/qikbot/img3.webp';
+import qikbotimg4 from '/qikbot/img4.webp';
 
-import qikenvImg from '/qikenv/cover.png';
-import qikenvImg1 from '/qikenv/img1.png';
-import qikenvImg2 from '/qikenv/img2.png';
-import qikenvImg3 from '/qikenv/img3.png';
-import qikenvImg4 from '/qikenv/img4.png';
+import qikenvImg from '/qikenv/cover.webp';
+import qikenvImg1 from '/qikenv/img1.webp';
+import qikenvImg2 from '/qikenv/img2.webp';
+import qikenvImg3 from '/qikenv/img3.webp';
+import qikenvImg4 from '/qikenv/img4.webp';
 
+// import quikagendaImg from '/qikagenda/cover.webp';
 
-// import quikagendaImg from '/qikagenda/cover.png';
+import ossyardImg from '/ossyard/cover.webp';
+import ossyardImg1 from '/ossyard/img1.webp';
+import ossyardImg2 from '/ossyard/img2.webp';
+import ossyardImg3 from '/ossyard/img3.webp';
 
-import ossyardImg from '/ossyard/cover.png';
-import ossyardImg1 from '/ossyard/img1.png';
-import ossyardImg2 from '/ossyard/img2.png';
-import ossyardImg3 from '/ossyard/img3.png';
+import ajoImg from '../assets/images/ajo_fintech_preview_1789165652719.webp';
+import ajoPayoutImg from '../assets/images/ajo_payout_queue_1789166253037.webp';
 
-import ajoImg from '../assets/images/ajo_fintech_preview_1789165652719.jpg';
-import ajoPayoutImg from '../assets/images/ajo_payout_queue_1789166253037.jpg';
-
-import portfolioPreviewImg from '../assets/images/portfolio_ui_full_preview_1789037205991.jpg';
+import portfolioPreviewImg from '../assets/images/portfolio_ui_full_preview_1789037205991.webp';
 
 export { portfolioPreviewImg };
 

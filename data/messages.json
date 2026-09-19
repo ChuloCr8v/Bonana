@@ -1,0 +1,28 @@
+[
+  {
+    "id": "msg_1789834143409_3lyuns",
+    "name": "Chinedu Okeke",
+    "email": "chinedu@example.com",
+    "subject": "Project Consultation",
+    "message": "Testing after removing setup UI.",
+    "createdAt": "Sat, 19 Sep 2026 16:09:03 GMT",
+    "ip": "127.0.0.1",
+    "provider": "local-archive",
+    "adminDelivered": true,
+    "userDelivered": true,
+    "status": "sent"
+  },
+  {
+    "id": "msg_1789833908109_1ubryx",
+    "name": "Ada Lovelace",
+    "email": "ada@analyticalengine.org",
+    "subject": "Senior Backend Inquiry",
+    "message": "Hello Bona, I saw your portfolio and work with Zoracom. We would love to discuss an engineering lead collaboration.",
+    "createdAt": "Sat, 19 Sep 2026 16:05:08 GMT",
+    "ip": "127.0.0.1",
+    "provider": "local-archive",
+    "adminDelivered": true,
+    "userDelivered": true,
+    "status": "sent"
+  }
+]
