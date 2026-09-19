@@ -19,10 +19,12 @@ import qikenvImg3 from '/qikenv/img3.png';
 import qikenvImg4 from '/qikenv/img4.png';
 
 
-import quikagendaImg from '/qikagenda/cover.png';
+// import quikagendaImg from '/qikagenda/cover.png';
 
-import ossyardImg from '../assets/images/ossyard_directory_preview_1789165637502.jpg';
-import ossyardSecurityImg from '../assets/images/ossyard_security_graph_1789166265321.jpg';
+import ossyardImg from '/ossyard/cover.png';
+import ossyardImg1 from '/ossyard/img1.png';
+import ossyardImg2 from '/ossyard/img2.png';
+import ossyardImg3 from '/ossyard/img3.png';
 
 import ajoImg from '../assets/images/ajo_fintech_preview_1789165652719.jpg';
 import ajoPayoutImg from '../assets/images/ajo_payout_queue_1789166253037.jpg';
@@ -32,6 +34,157 @@ import portfolioPreviewImg from '../assets/images/portfolio_ui_full_preview_1789
 export { portfolioPreviewImg };
 
 export const ALL_PROJECTS: Project[] = [
+  {
+    id: 'qikenv',
+
+    name: 'Qikenv',
+
+    tier: 'secondary',
+
+    tagline:
+      'Encrypted environment-variable management for development teams.',
+
+    featured: true,
+
+    category: 'Developer Tool',
+
+    imageUrl: qikenvImg,
+
+    imageAlt:
+      'Qikenv CLI terminal tool and encrypted team environment manager',
+
+    galleryImages: [
+      {
+        url: qikenvImg,
+        title: 'Qikenv CLI',
+        caption:
+          'Qikenv command-line workflow for securely pulling project environment configuration with npx.'
+      },
+      {
+        url: qikenvImg1,
+        title: 'Projects Dashboard',
+        caption:
+          'Dashboard for managing Qikenv projects and their connected environment configurations.'
+      },
+      {
+        url: qikenvImg2,
+        title: 'Project Environments',
+        caption:
+          'Environment management view showing the configurations associated with a selected project.'
+      },
+      {
+        url: qikenvImg3,
+        title: 'Project Audit Log',
+        caption:
+          'Audit history showing changes and activity associated with project environment configurations.'
+      },
+      {
+        url: qikenvImg4,
+        title: 'Saved Project Secrets',
+        caption:
+          'Secure environment-variable view showing the saved configuration keys for a project.'
+      }
+    ],
+
+    architectureTag: 'Featured System · Developer Tool',
+
+    overview:
+      'Qikenv is a secure environment-variable vault and CLI workflow designed to make sharing and managing application configuration easier across development environments.',
+
+    problem:
+      'Environment variables are often shared through insecure channels or copied manually between machines and team members.',
+
+    solution:
+      'Built a centralized workflow for storing, retrieving, and managing environment configuration, with a CLI for developer workflows.',
+
+    role:
+      'Built the product architecture, web interface, backend services, CLI workflow, encryption layer, and team configuration management.',
+
+    myContribution: [
+      'Implemented client-side AES-256-GCM encryption before secret payloads leave the terminal.',
+
+      'Engineered an Optimistic Concurrency Control (OCC) protocol preventing silent overwrites of configuration keys.',
+
+      'Published and maintained the CLI package on npm for developer teams.',
+
+      'Built an interactive in-browser OCC conflict resolution simulator.'
+    ],
+
+    architecture: {
+      frontend:
+        'Interactive documentation & browser OCC simulator built in React & TypeScript.',
+
+      backend:
+        'NestJS REST API, Node.js CLI runtime, cryptographic signing engine.',
+
+      database:
+        'PostgreSQL with Prisma, tracking project revision histories, SHA-256 digests, and access logs.',
+
+      infrastructure:
+        'Published to npm Registry, backend on AWS ECS with RDS PostgreSQL.'
+    },
+
+    architectureDetails: [
+      'Zero-installation CLI (`npx qikenv`) running cross-platform on macOS, Linux, and Windows.',
+
+      'Cryptographic SHA-256 version digests detecting diverged team config branches.',
+
+      'Atomic filesystem write swapping preventing corrupt configs on interruption.',
+
+      'Audit logging tracking modifications to team configurations.'
+    ],
+
+    technicalHighlights: [
+      'Atomic filesystem write swapping: writes to `.tmp` file and performs atomic rename.',
+
+      'Interactive terminal diff visualizer highlighting added, updated, and deprecated keys.'
+    ],
+
+    challenges: [
+      'Designing an intuitive merge flow when team members update configuration keys simultaneously.',
+
+      'Keeping CLI execution fast and lightweight when invoked via `npx`.'
+    ],
+
+    outcome: [
+      'Built encrypted environment synchronization with AES-256-GCM client encryption.',
+
+      'Verified optimistic concurrency conflict detection using version tags and SHA-256 digests.',
+
+      'Implemented atomic filesystem swapping to ensure config file safety.'
+    ],
+
+    results: [
+      'Client-side encryption for environment configuration payloads',
+
+      'Optimistic concurrency conflict detection for team secret updates',
+
+      'Cross-platform npm CLI workflow for pulling project configuration'
+    ],
+
+    techStack: [
+      'TypeScript',
+      'React',
+      'NestJS',
+      'PostgreSQL',
+      'Prisma',
+      'Node.js',
+      'CLI tooling',
+      'AES-256-GCM'
+    ],
+
+    links: {
+      github: 'https://github.com/ChuloCr8v/qik-env-client',
+
+      npm: 'https://www.npmjs.com/package/qikenv-cli',
+
+      live: 'https://qik-env-client.pages.dev/',
+
+      caseStudy: '/projects/qikenv'
+    },
+
+    cliCommand: 'npx qikenv pull'
+  },
   {
     id: 'qikcv',
 
@@ -174,7 +327,7 @@ export const ALL_PROJECTS: Project[] = [
     ],
 
     links: {
-      github: 'https://github.com/chulocr8v',
+      github: 'https://github.com/ChuloCr8v/qikcv-client',
 
       live: 'https://qikcv.vercel.app',
 
@@ -317,307 +470,157 @@ export const ALL_PROJECTS: Project[] = [
     ],
 
     links: {
-      github: 'https://github.com/chulocr8v',
+      github: 'https://github.com/ChuloCr8v/botforge-client',
 
-      live: 'https://botforge.app',
+      live: 'https://qikbot.vercel.app',
 
       caseStudy: '/projects/botforge'
     }
   },
 
-  {
-    id: 'qikenv',
 
-    name: 'Qikenv',
 
-    tier: 'secondary',
+  // {
+  //   id: 'qikagenda',
 
-    tagline:
-      'Encrypted environment-variable management for development teams.',
+  //   name: 'QikAgenda',
 
-    featured: true,
+  //   tier: 'secondary',
 
-    category: 'Developer Tool',
+  //   tagline:
+  //     'Meeting workflow tool connecting transcription, summaries, action items, and calendar workflows.',
 
-    imageUrl: qikenvImg,
+  //   featured: true,
 
-    imageAlt:
-      'Qikenv CLI terminal tool and encrypted team environment manager',
+  //   category: 'SaaS / Productivity',
 
-    galleryImages: [
-      {
-        url: qikenvImg,
-        title: 'Qikenv CLI',
-        caption:
-          'Qikenv command-line workflow for securely pulling project environment configuration with npx.'
-      },
-      {
-        url: qikenvImg1,
-        title: 'Projects Dashboard',
-        caption:
-          'Dashboard for managing Qikenv projects and their connected environment configurations.'
-      },
-      {
-        url: qikenvImg2,
-        title: 'Project Environments',
-        caption:
-          'Environment management view showing the configurations associated with a selected project.'
-      },
-      {
-        url: qikenvImg3,
-        title: 'Project Audit Log',
-        caption:
-          'Audit history showing changes and activity associated with project environment configurations.'
-      },
-      {
-        url: qikenvImg4,
-        title: 'Saved Project Secrets',
-        caption:
-          'Secure environment-variable view showing the saved configuration keys for a project.'
-      }
-    ],
+  //   imageUrl: quikagendaImg,
 
-    architectureTag: 'Featured System · Developer Tool',
+  //   imageAlt:
+  //     'QikAgenda meeting summary and calendar automation dashboard',
 
-    overview:
-      'Qikenv is a secure environment-variable vault and CLI workflow designed to make sharing and managing application configuration easier across development environments.',
+  //   // galleryImages: [
+  //   //   {
+  //   //     url: quikagendaImg,
+  //   //     title: 'Meeting Intelligence & Action Items',
+  //   //     caption:
+  //   //       'Transcription interface with AI-extracted deliverables, owner assignments, and action items.'
+  //   //   },
+  //   //   // {
+  //   //   //   url: quikagendaCalendarImg,
+  //   //   //   title: 'Microsoft 365 Calendar Synchronization',
+  //   //   //   caption:
+  //   //   //     'Calendar synchronization and meeting follow-up scheduling via Microsoft Graph API.'
+  //   //   // }
+  //   // ],
 
-    problem:
-      'Environment variables are often shared through insecure channels or copied manually between machines and team members.',
+  //   architectureTag: 'Featured System · Productivity',
 
-    solution:
-      'Built a centralized workflow for storing, retrieving, and managing environment configuration, with a CLI for developer workflows.',
+  //   overview:
+  //     'QikAgenda connects meeting data with follow-up actions so important decisions and tasks are easier to capture after meetings.',
 
-    role:
-      'Built the product architecture, web interface, backend services, CLI workflow, encryption layer, and team configuration management.',
+  //   problem:
+  //     'Meeting outcomes are often lost between transcripts, notes, calendars, and follow-up tasks.',
 
-    myContribution: [
-      'Implemented client-side AES-256-GCM encryption before secret payloads leave the terminal.',
+  //   solution:
+  //     'Built workflows for processing meeting recordings, extracting useful information, and connecting outcomes with calendar and productivity workflows.',
 
-      'Engineered an Optimistic Concurrency Control (OCC) protocol preventing silent overwrites of configuration keys.',
+  //   role:
+  //     'Built the application and supporting integrations across the frontend, backend, AI processing, and Microsoft calendar workflows.',
 
-      'Published and maintained the CLI package on npm for developer teams.',
+  //   myContribution: [
+  //     'Implemented Microsoft Graph API OAuth 2.0 calendar integration for checking schedule availability and creating events.',
 
-      'Built an interactive in-browser OCC conflict resolution simulator.'
-    ],
+  //     'Engineered structured extraction prompts with OpenAI to classify meeting topics into decisions and follow-ups.',
 
-    architecture: {
-      frontend:
-        'Interactive documentation & browser OCC simulator built in React & TypeScript.',
+  //     'Built a reactive React dashboard displaying call transcripts and pending calendar items.',
 
-      backend:
-        'NestJS REST API, Node.js CLI runtime, cryptographic signing engine.',
+  //     'Configured Recall.ai bot webhooks for automated recording ingestion and transcript pipelines.'
+  //   ],
 
-      database:
-        'PostgreSQL with Prisma, tracking project revision histories, SHA-256 digests, and access logs.',
+  //   architecture: {
+  //     frontend:
+  //       'React 19, TypeScript, Tailwind CSS, Ant Design timeline components.',
 
-      infrastructure:
-        'Published to npm Registry, backend on AWS ECS with RDS PostgreSQL.'
-    },
+  //     backend:
+  //       'NestJS API, Node.js background processors, Recall.ai webhook listeners.',
 
-    architectureDetails: [
-      'Zero-installation CLI (`npx qikenv`) running cross-platform on macOS, Linux, and Windows.',
+  //     database:
+  //       'PostgreSQL with Prisma, storing meeting transcripts, extracted action items, and sync states.',
 
-      'Cryptographic SHA-256 version digests detecting diverged team config branches.',
+  //     infrastructure:
+  //       'AWS ECS container deployment, S3 encrypted audio storage, Microsoft Azure AD App Registration.'
+  //   },
 
-      'Atomic filesystem write swapping preventing corrupt configs on interruption.',
+  //   architectureDetails: [
+  //     'Two-way calendar synchronization with Outlook using Microsoft Graph delta queries.',
 
-      'Audit logging tracking modifications to team configurations.'
-    ],
+  //     'Speaker diarization pipeline mapping transcript segments to recognized team members.',
 
-    technicalHighlights: [
-      'Atomic filesystem write swapping: writes to `.tmp` file and performs atomic rename.',
+  //     'Tenant isolation ensuring internal corporate notes remain private.',
 
-      'Interactive terminal diff visualizer highlighting added, updated, and deprecated keys.'
-    ],
+  //     'Automated email recap dispatch sending summary digests to attendees.'
+  //   ],
 
-    challenges: [
-      'Designing an intuitive merge flow when team members update configuration keys simultaneously.',
+  //   technicalHighlights: [
+  //     'Structured schema generation with OpenAI function calling ensuring action items have valid dates and assigned owners.',
 
-      'Keeping CLI execution fast and lightweight when invoked via `npx`.'
-    ],
+  //     'Handling meeting rescheduling events via Microsoft Graph webhooks.'
+  //   ],
 
-    outcome: [
-      'Built encrypted environment synchronization with AES-256-GCM client encryption.',
+  //   challenges: [
+  //     'Resolving calendar booking conflicts across team members in different time zones.',
 
-      'Verified optimistic concurrency conflict detection using version tags and SHA-256 digests.',
+  //     'Maintaining accurate speaker attribution across noisy meeting audio.'
+  //   ],
 
-      'Implemented atomic filesystem swapping to ensure config file safety.'
-    ],
+  //   outcome: [
+  //     'Built and tested the meeting ingestion flow from recording webhooks through transcript storage.',
 
-    results: [
-      'Client-side encryption for environment configuration payloads',
+  //     'Implemented structured action-item extraction with schema-constrained OpenAI function calling.',
 
-      'Optimistic concurrency conflict detection for team secret updates',
+  //     'Verified Microsoft Graph calendar conflict checks and event creation workflows.'
+  //   ],
 
-      'Cross-platform npm CLI workflow for pulling project configuration'
-    ],
+  //   results: [
+  //     'Recall.ai webhook ingestion for meeting recordings',
 
-    techStack: [
-      'TypeScript',
-      'React',
-      'NestJS',
-      'PostgreSQL',
-      'Prisma',
-      'Node.js',
-      'CLI tooling',
-      'AES-256-GCM'
-    ],
+  //     'Schema-constrained action item extraction for meetings',
 
-    links: {
-      github: 'https://github.com/chulocr8v',
+  //     'Microsoft Graph calendar synchronization workflow'
+  //   ],
 
-      npm: 'https://www.npmjs.com/package/qikenv',
+  //   techStack: [
+  //     'React',
+  //     'TypeScript',
+  //     'NestJS',
+  //     'PostgreSQL',
+  //     'Prisma',
+  //     'Microsoft Graph',
+  //     'Recall.ai',
+  //     'OpenAI API'
+  //   ],
 
-      live: 'https://www.npmjs.com/package/qikenv',
+  //   links: {
+  //     github: 'https://github.com/chulocr8v',
 
-      caseStudy: '/projects/qikenv'
-    },
+  //     live: 'https://qikagenda.com',
 
-    cliCommand: 'npx qikenv pull'
-  },
-
-  {
-    id: 'qikagenda',
-
-    name: 'QikAgenda',
-
-    tier: 'secondary',
-
-    tagline:
-      'Meeting workflow tool connecting transcription, summaries, action items, and calendar workflows.',
-
-    featured: true,
-
-    category: 'SaaS / Productivity',
-
-    imageUrl: quikagendaImg,
-
-    imageAlt:
-      'QikAgenda meeting summary and calendar automation dashboard',
-
-    // galleryImages: [
-    //   {
-    //     url: quikagendaImg,
-    //     title: 'Meeting Intelligence & Action Items',
-    //     caption:
-    //       'Transcription interface with AI-extracted deliverables, owner assignments, and action items.'
-    //   },
-    //   // {
-    //   //   url: quikagendaCalendarImg,
-    //   //   title: 'Microsoft 365 Calendar Synchronization',
-    //   //   caption:
-    //   //     'Calendar synchronization and meeting follow-up scheduling via Microsoft Graph API.'
-    //   // }
-    // ],
-
-    architectureTag: 'Featured System · Productivity',
-
-    overview:
-      'QikAgenda connects meeting data with follow-up actions so important decisions and tasks are easier to capture after meetings.',
-
-    problem:
-      'Meeting outcomes are often lost between transcripts, notes, calendars, and follow-up tasks.',
-
-    solution:
-      'Built workflows for processing meeting recordings, extracting useful information, and connecting outcomes with calendar and productivity workflows.',
-
-    role:
-      'Built the application and supporting integrations across the frontend, backend, AI processing, and Microsoft calendar workflows.',
-
-    myContribution: [
-      'Implemented Microsoft Graph API OAuth 2.0 calendar integration for checking schedule availability and creating events.',
-
-      'Engineered structured extraction prompts with OpenAI to classify meeting topics into decisions and follow-ups.',
-
-      'Built a reactive React dashboard displaying call transcripts and pending calendar items.',
-
-      'Configured Recall.ai bot webhooks for automated recording ingestion and transcript pipelines.'
-    ],
-
-    architecture: {
-      frontend:
-        'React 19, TypeScript, Tailwind CSS, Ant Design timeline components.',
-
-      backend:
-        'NestJS API, Node.js background processors, Recall.ai webhook listeners.',
-
-      database:
-        'PostgreSQL with Prisma, storing meeting transcripts, extracted action items, and sync states.',
-
-      infrastructure:
-        'AWS ECS container deployment, S3 encrypted audio storage, Microsoft Azure AD App Registration.'
-    },
-
-    architectureDetails: [
-      'Two-way calendar synchronization with Outlook using Microsoft Graph delta queries.',
-
-      'Speaker diarization pipeline mapping transcript segments to recognized team members.',
-
-      'Tenant isolation ensuring internal corporate notes remain private.',
-
-      'Automated email recap dispatch sending summary digests to attendees.'
-    ],
-
-    technicalHighlights: [
-      'Structured schema generation with OpenAI function calling ensuring action items have valid dates and assigned owners.',
-
-      'Handling meeting rescheduling events via Microsoft Graph webhooks.'
-    ],
-
-    challenges: [
-      'Resolving calendar booking conflicts across team members in different time zones.',
-
-      'Maintaining accurate speaker attribution across noisy meeting audio.'
-    ],
-
-    outcome: [
-      'Built and tested the meeting ingestion flow from recording webhooks through transcript storage.',
-
-      'Implemented structured action-item extraction with schema-constrained OpenAI function calling.',
-
-      'Verified Microsoft Graph calendar conflict checks and event creation workflows.'
-    ],
-
-    results: [
-      'Recall.ai webhook ingestion for meeting recordings',
-
-      'Schema-constrained action item extraction for meetings',
-
-      'Microsoft Graph calendar synchronization workflow'
-    ],
-
-    techStack: [
-      'React',
-      'TypeScript',
-      'NestJS',
-      'PostgreSQL',
-      'Prisma',
-      'Microsoft Graph',
-      'Recall.ai',
-      'OpenAI API'
-    ],
-
-    links: {
-      github: 'https://github.com/chulocr8v',
-
-      live: 'https://qikagenda.com',
-
-      caseStudy: '/projects/qikagenda'
-    }
-  },
+  //     caseStudy: '/projects/qikagenda'
+  //   }
+  // },
 
   {
     id: 'ossyard',
 
     name: 'OSSYard',
 
-    tier: 'other',
+    tier: 'secondary',
 
     tagline:
       'A developer-focused platform for discovering, organizing, and working with open-source projects.',
 
-    featured: false,
+    featured: true,
 
     category: 'Developer Ecosystem & Open Source',
 
@@ -628,14 +631,20 @@ export const ALL_PROJECTS: Project[] = [
 
     galleryImages: [
       {
-        url: ossyardImg,
-        title: 'Open Source Package Directory',
+        url: ossyardImg1,
+        title: 'Featured Repository View',
         caption:
           'Curated developer directory indexing repository commit activity and maintenance indicators.'
       },
       {
-        url: ossyardSecurityImg,
-        title: 'Dependency Health Matrix',
+        url: ossyardImg2,
+        title: 'Open Source Softwares Yard',
+        caption:
+          'Package maintenance scoring and dependency graph analysis.'
+      },
+      {
+        url: ossyardImg3,
+        title: 'User Profile Configuration',
         caption:
           'Package maintenance scoring and dependency graph analysis.'
       }
@@ -711,129 +720,129 @@ export const ALL_PROJECTS: Project[] = [
     ],
 
     links: {
-      github: 'https://github.com/chulocr8v',
+      github: 'https://github.com/chulocr8v/ossyard',
 
-      live: 'https://ossyard.dev',
+      live: 'https://ossyard.vercel.app',
 
       caseStudy: '/projects/ossyard'
     }
   },
 
-  {
-    id: 'ajo',
+  // {
+  //   id: 'ajo',
 
-    name: 'Ajo',
+  //   name: 'Ajo',
 
-    tier: 'other',
+  //   tier: 'other',
 
-    tagline:
-      'A digital savings and contribution management product built around structured group financial workflows.',
+  //   tagline:
+  //     'A digital savings and contribution management product built around structured group financial workflows.',
 
-    featured: false,
+  //   featured: false,
 
-    category: 'Fintech & Community Banking',
+  //   category: 'Fintech & Community Banking',
 
-    imageUrl: ajoImg,
+  //   imageUrl: ajoImg,
 
-    imageAlt:
-      'Ajo rotating savings and credit association ledger platform',
+  //   imageAlt:
+  //     'Ajo rotating savings and credit association ledger platform',
 
-    galleryImages: [
-      {
-        url: ajoImg,
-        title: 'Group Savings Contribution Ledger',
-        caption:
-          'Double-entry contribution ledger, transparent pool tracker, and rotation schedule.'
-      },
-      {
-        url: ajoPayoutImg,
-        title: 'Member Disbursement Timeline',
-        caption:
-          'Disbursement queue, member rotation timeline, and payout schedule tracking.'
-      }
-    ],
+  //   galleryImages: [
+  //     {
+  //       url: ajoImg,
+  //       title: 'Group Savings Contribution Ledger',
+  //       caption:
+  //         'Double-entry contribution ledger, transparent pool tracker, and rotation schedule.'
+  //     },
+  //     {
+  //       url: ajoPayoutImg,
+  //       title: 'Member Disbursement Timeline',
+  //       caption:
+  //         'Disbursement queue, member rotation timeline, and payout schedule tracking.'
+  //     }
+  //   ],
 
-    problem:
-      'Manual management of informal group savings circles often leads to missing funds, missed contribution cycles, and lack of audit visibility.',
+  //   problem:
+  //     'Manual management of informal group savings circles often leads to missing funds, missed contribution cycles, and lack of audit visibility.',
 
-    solution:
-      'A digital platform tracking member contributions in real time, automating payment reminders, and scheduling transparent payout cycles.',
+  //   solution:
+  //     'A digital platform tracking member contributions in real time, automating payment reminders, and scheduling transparent payout cycles.',
 
-    role:
-      'Full-Stack Developer: Financial ledger design, payout scheduling algorithms, and member notification triggers.',
+  //   role:
+  //     'Full-Stack Developer: Financial ledger design, payout scheduling algorithms, and member notification triggers.',
 
-    myContribution: [
-      'Designed double-entry transaction database schema mapping contributions to scheduled disbursements.',
+  //   myContribution: [
+  //     'Designed double-entry transaction database schema mapping contributions to scheduled disbursements.',
 
-      'Built automated notification engine triggering payment reminders prior to cycle deadlines.',
+  //     'Built automated notification engine triggering payment reminders prior to cycle deadlines.',
 
-      'Implemented a mobile-first dashboard for members to track pool progress and payout turns.'
-    ],
+  //     'Implemented a mobile-first dashboard for members to track pool progress and payout turns.'
+  //   ],
 
-    architecture: {
-      frontend:
-        'React, TypeScript, Tailwind CSS, responsive mobile-first UI.',
+  //   architecture: {
+  //     frontend:
+  //       'React, TypeScript, Tailwind CSS, responsive mobile-first UI.',
 
-      backend:
-        'NestJS REST API, Node.js background scheduler for payout dates.',
+  //     backend:
+  //       'NestJS REST API, Node.js background scheduler for payout dates.',
 
-      database:
-        'PostgreSQL with Prisma ORM enforcing constraints on payout schedules.',
+  //     database:
+  //       'PostgreSQL with Prisma ORM enforcing constraints on payout schedules.',
 
-      infrastructure:
-        'Docker containers on AWS, RDS PostgreSQL, automated daily backups.'
-    },
+  //     infrastructure:
+  //       'Docker containers on AWS, RDS PostgreSQL, automated daily backups.'
+  //   },
 
-    architectureDetails: [
-      'Double-entry transaction ledger maintaining mathematical balance across group rounds.',
+  //   architectureDetails: [
+  //     'Double-entry transaction ledger maintaining mathematical balance across group rounds.',
 
-      'Automated payout rotation scheduler enforcing agreed-upon turn sequences.',
+  //     'Automated payout rotation scheduler enforcing agreed-upon turn sequences.',
 
-      'Real-time transparency feed displaying validated contributions to all members.'
-    ],
+  //     'Real-time transparency feed displaying validated contributions to all members.'
+  //   ],
 
-    technicalHighlights: [
-      'Atomic SQL transactions ensuring contributions are recorded and credited simultaneously.'
-    ],
+  //   technicalHighlights: [
+  //     'Atomic SQL transactions ensuring contributions are recorded and credited simultaneously.'
+  //   ],
 
-    challenges: [
-      'Designing flexible rotation rules to handle emergency cycle adjustments while maintaining trust.'
-    ],
+  //   challenges: [
+  //     'Designing flexible rotation rules to handle emergency cycle adjustments while maintaining trust.'
+  //   ],
 
-    outcome: [
-      'Built double-entry contribution ledger flows for savings groups.',
+  //   outcome: [
+  //     'Built double-entry contribution ledger flows for savings groups.',
 
-      'Implemented payout rotation scheduling with database constraints.',
+  //     'Implemented payout rotation scheduling with database constraints.',
 
-      'Verified reminder trigger logic for upcoming contribution deadlines.'
-    ],
+  //     'Verified reminder trigger logic for upcoming contribution deadlines.'
+  //   ],
 
-    results: [
-      'Double-entry transaction ledger for contribution tracking',
+  //   results: [
+  //     'Double-entry transaction ledger for contribution tracking',
 
-      'Automated payout rotation scheduler',
+  //     'Automated payout rotation scheduler',
 
-      'Notification trigger workflow for contribution reminders'
-    ],
+  //     'Notification trigger workflow for contribution reminders'
+  //   ],
 
-    techStack: [
-      'NestJS',
-      'PostgreSQL',
-      'Prisma',
-      'React',
-      'TypeScript',
-      'Tailwind CSS',
-      'Docker'
-    ],
+  //   techStack: [
+  //     'NestJS',
+  //     'PostgreSQL',
+  //     'Prisma',
+  //     'React',
+  //     'TypeScript',
+  //     'Tailwind CSS',
+  //     'Docker'
+  //   ],
 
-    links: {
-      github: 'https://github.com/chulocr8v',
+  //   links: {
+  //     github: 'https://github.com/chulocr8v',
 
-      live: 'https://ajo-savings.vercel.app',
+  //     live: 'https://ajo-savings.vercel.app',
 
-      caseStudy: '/projects/ajo'
-    }
-  },
+  //     caseStudy: '/projects/ajo'
+  //   }
+  // },
 
   {
     id: 'nemsa',
