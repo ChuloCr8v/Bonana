@@ -3,6 +3,14 @@ import path from 'path';
 import { PDFDocument, StandardFonts, rgb } from 'pdf-lib';
 
 async function generateCV() {
+  const uploadedPdf = path.resolve('public', 'assets', 'aistudio', 'Nkematu_Bonaventure_Fullstack-Devoper_Resume_f0decde3.pdf');
+  const outputPath = path.resolve('public', 'Nkematu_Bonaventure_Full_Stack_Engineer_CV.pdf');
+  if (fs.existsSync(uploadedPdf)) {
+    fs.copyFileSync(uploadedPdf, outputPath);
+    console.log('Using official uploaded resume PDF at:', outputPath);
+    return;
+  }
+
   const doc = await PDFDocument.create();
   
   // Embed standard fonts (ATS standard)
@@ -15,12 +23,24 @@ async function generateCV() {
   const pageHeight = 841.89;
   const contentWidth = pageWidth - pageMargin * 2;
 
+  function drawPageBackground(p) {
+    p.drawRectangle({
+      x: 0,
+      y: 0,
+      width: pageWidth,
+      height: pageHeight,
+      color: rgb(1, 1, 1),
+    });
+  }
+
   let page = doc.addPage([pageWidth, pageHeight]);
+  drawPageBackground(page);
   let y = pageHeight - pageMargin;
 
   function checkPageSpace(requiredSpace) {
     if (y - requiredSpace < pageMargin) {
       page = doc.addPage([pageWidth, pageHeight]);
+      drawPageBackground(page);
       y = pageHeight - pageMargin;
     }
   }
@@ -297,7 +317,6 @@ async function generateCV() {
   );
 
   const pdfBytes = await doc.save();
-  const outputPath = path.resolve('public', 'Nkematu_Bonaventure_Full_Stack_Engineer_CV.pdf');
   fs.writeFileSync(outputPath, pdfBytes);
   console.log('CV PDF successfully generated at:', outputPath, 'Size:', pdfBytes.length, 'bytes');
 }

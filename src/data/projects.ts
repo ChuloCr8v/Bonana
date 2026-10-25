@@ -177,7 +177,7 @@ export const ALL_PROJECTS: Project[] = [
 
       npm: 'https://www.npmjs.com/package/qikenv-cli',
 
-      live: 'https://qik-env-client.pages.dev/',
+      live: 'https://qikenv.cloud',
 
       caseStudy: '/projects/qikenv'
     },

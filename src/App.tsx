@@ -10,6 +10,7 @@ import { ContactSection } from "./sections/ContactSection";
 import { Footer } from "./components/Footer";
 import { ResumeModal } from "./components/ResumeModal";
 import { ImageModal } from "./components/ImageModal";
+import { DevBackgroundGrid } from "./components/DevBackgroundGrid";
 
 export default function App() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
@@ -98,7 +99,10 @@ export default function App() {
   }, [theme]);
 
   return (
-    <div className="min-h-screen flex flex-col bg-transparent text-[var(--text-main)] antialiased transition-colors duration-200">
+    <div className="min-h-screen flex flex-col bg-transparent text-[var(--text-main)] antialiased transition-colors duration-200 relative isolate">
+      {/* Developer Architectural Background Grid */}
+      <DevBackgroundGrid />
+
       {/* Top Fixed Scroll-Progress Indicator */}
       <motion.div
         className="fixed top-0 left-0 right-0 h-[2.5px] bg-[var(--accent)] z-50 origin-left pointer-events-none"
@@ -115,8 +119,8 @@ export default function App() {
       />
 
       {/* Monolithic Box Grid Container (Preserving original borders and layout) */}
-      <div className="flex-1 w-full max-w-6xl mx-auto px-0 sm:px-4 lg:px-6 py-0 sm:py-6">
-        <main className="w-full border-y sm:border border-[var(--border)] bg-[var(--surface)] shadow-xs">
+      <div className="flex-1 w-full max-w-6xl mx-auto px-0 sm:px-4 lg:px-6 py-0 sm:py-6 relative z-10">
+        <main className="w-full border-y sm:border border-[var(--border)] bg-[var(--surface)] shadow-xs relative z-10">
           {/* 1. Hero Section */}
           <HeroSection onOpenResume={() => setIsResumeOpen(true)} />
 
@@ -144,6 +148,7 @@ export default function App() {
       <ResumeModal
         isOpen={isResumeOpen}
         onClose={() => setIsResumeOpen(false)}
+        theme={theme}
       />
 
       {/* Dynamic Project Image Lightbox */}

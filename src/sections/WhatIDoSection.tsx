@@ -10,7 +10,7 @@ export const WhatIDoSection: React.FC = () => {
   return (
     <section
       id="what-i-do"
-      className="w-full border-b border-[var(--border)] bg-[var(--surface)]"
+      className="w-full border-b border-[var(--border)] bg-[var(--surface)] relative z-10"
     >
       <HangingSectionHeader
         id="disciplines"

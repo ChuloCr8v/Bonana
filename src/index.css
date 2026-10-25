@@ -14,8 +14,8 @@
     --border: #E5E7EB;
     --border-subtle: #F0F2F5;
     --text-main: #111827;
-    --text-muted: #4B5563;
-    --text-faint: #6B7280;
+    --text-muted: #374151;
+    --text-faint: #4B5563;
     --accent: #0969DA;
     --accent-subtle: #EFF6FF;
     --code-bg: #F3F4F6;
@@ -28,8 +28,8 @@
     --border: #27272a;
     --border-subtle: #202023;
     --text-main: #f4f4f5;
-    --text-muted: #a1a1aa;
-    --text-faint: #71717a;
+    --text-muted: #d4d4d8; /* Significantly increased brightness/contrast for dark mode */
+    --text-faint: #a1a1aa; /* Increased visibility for secondary/auxiliary grey text */
     --accent: #f4f4f5;
     --accent-subtle: #27272a;
     --code-bg: #18181b;
@@ -162,6 +162,35 @@
 
 .ant-drawer-footer a {
   color: inherit !important;
+}
+
+/* Developer Architectural Background Grid */
+.dev-grid-line {
+  stroke: var(--border);
+  opacity: 0.2;
+}
+.dark .dev-grid-line {
+  stroke: #27272a;
+  opacity: 0.3;
+}
+
+.dev-grid-crosshair {
+  stroke: var(--text-faint);
+  opacity: 0.2;
+}
+.dark .dev-grid-crosshair {
+  stroke: #71717a;
+  opacity: 0.25;
+}
+
+.dev-grid-icon {
+  color: var(--text-muted);
+  opacity: 0.035;
+  transition: opacity 0.2s ease;
+}
+.dark .dev-grid-icon {
+  color: #a1a1aa;
+  opacity: 0.055;
 }
 
 

@@ -46,11 +46,11 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
                 "relative border-b border-[var(--border)] overflow-hidden dark:bg-orange-500 bg-orange-400",
               )}
             >
-              <div className="relative aspect-video w-full overflow-hidden">
+              <div className="relative aspect-video w-full overflow-hidden flex justify-center">
                 <img
                   src={project.imageUrl}
                   alt={project.imageAlt || `${project.name} interface`}
-                  className="border-12 border-orange-800 w-[90%] translate-y-8 place-self-center h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
+                  className="border-12 border-orange-800 w-[90%] translate-y-8 mx-auto h-full object-cover object-top transition-transform duration-300 group-hover:scale-[1.02]"
                   referrerPolicy="no-referrer"
                   loading="lazy"
                 />

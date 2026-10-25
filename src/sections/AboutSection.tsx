@@ -7,7 +7,7 @@ export const AboutSection: React.FC = () => {
   return (
     <section
       id="about"
-      className="w-full border-b border-[var(--border)] bg-[var(--surface)]"
+      className="w-full border-b border-[var(--border)] bg-[var(--surface)] relative z-10"
     >
       {/* Hanging Plaque: Professional Experience */}
       <HangingSectionHeader

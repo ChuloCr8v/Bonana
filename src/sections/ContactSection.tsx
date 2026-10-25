@@ -216,7 +216,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   }, []);
 
   return (
-    <section id="contact" className="w-full bg-[var(--surface)]">
+    <section id="contact" className="w-full bg-[var(--surface)] relative z-10">
       {/* Centralized Section Title Hanging on 2 Strings */}
       <HangingSectionHeader
         title="Get in touch"

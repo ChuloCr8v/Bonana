@@ -9,7 +9,7 @@ interface FooterProps {
 
 export const Footer: React.FC<FooterProps> = ({ theme }) => {
   return (
-    <footer className="w-full border-t border-[var(--border)] bg-[var(--surface-alt)] text-xs text-[var(--text-main)]">
+    <footer className="w-full border-t border-[var(--border)] bg-[var(--surface-alt)] text-xs text-[var(--text-main)] relative z-10">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 py-6 sm:py-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] sm:text-xs text-[var(--text-muted)]">
         <a
           href="/"

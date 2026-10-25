@@ -30,7 +30,7 @@ export const ProjectsSection: React.FC<ProjectsSectionProps> = ({
   return (
     <section
       id="projects"
-      className="w-full border-b border-[var(--border)] bg-[var(--surface)]"
+      className="w-full border-b border-[var(--border)] bg-[var(--surface)] relative z-10"
     >
       {/* Hanging Plaque Section Header */}
       <HangingSectionHeader

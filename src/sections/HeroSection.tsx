@@ -243,7 +243,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ onOpenResume }) => {
   return (
     <section
       id="home"
-      className="w-full border-b border-[var(--border)] bg-[var(--surface)]"
+      className="w-full border-b border-[var(--border)] bg-[var(--surface)] relative z-10"
     >
       {/* Main Bio Grid Row with Desktop Vertical Mosaic on the Right */}
       <div className="flex flex-col lg:flex-row items-stretch">

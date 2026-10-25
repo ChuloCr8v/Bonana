@@ -68,7 +68,7 @@ export const AboutIntroSection: React.FC = () => {
   return (
     <section
       id="about-intro"
-      className="w-full border-b border-[var(--border)] bg-[var(--surface)]"
+      className="w-full border-b border-[var(--border)] bg-[var(--surface)] relative z-10"
     >
       <HangingSectionHeader
         id="about"
